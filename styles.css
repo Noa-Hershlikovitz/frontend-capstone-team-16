@@ -1,3 +1,7 @@
 input{
     border-radius: 3px;
 }
+
+body, textarea {
+  font-family: 'Carlito', sans-serif;
+}
