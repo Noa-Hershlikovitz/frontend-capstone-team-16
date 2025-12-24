@@ -1,5 +1,19 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #fdfdfd 40%,
+    #05e2ff22 100%
+  );
+}
+
+
+
 .big_logo {
-    margin-left: 35%;
+    margin-left: 40%;
 }
 
 /* carousel  */
@@ -29,6 +43,21 @@
   border: 3px solid #000;
 }
 
+.cv-carousel-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-title {
+  margin-top: 20px;
+  font-size: 30;
+  letter-spacing: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+
 /* Arrows */
 .arrow {
   background: none;
@@ -37,7 +66,105 @@
   cursor: pointer;
 }
 
+
+/* About us */
 .about-us {
   font-family: 'Montserrat', sans-serif;
 }
+.about_section {
+  margin: 120px auto;
+  max-width: 1200px;
+}
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.about-images {
+  display: flex;
+  gap: 30px;
+}
+
+.small_images_left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.small_images_left img {
+  width: 280px;
+}
+
+.big_image_right img {
+  width: 340px;
+  height: auto;
+}
+
+.how_it_works {
+  margin: 80px auto;
+  text-align: center;
+}
+
+.how-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.how-cards {
+  margin: 0 auto;
+}
+
+.how-card {
+  width: 18rem;              
+  min-height: 200px;
+  border: 4px solid #00bcd4; 
+  border-radius: 0px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.237);
+}
+
+.how-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center; 
+  text-align: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.how-card h4 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.how-card .card-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.how-card svg {
+  margin-top: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.how-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.how-btn {
+  padding: 12px 26px;
+  border-radius: 10px;
+}
+
+
+
+
 
