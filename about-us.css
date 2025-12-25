@@ -1,0 +1,34 @@
+.about-us {
+  font-family: 'Montserrat', sans-serif;
+}
+.about_section {
+  margin: 120px auto;
+  max-width: 1200px;
+}
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.small_images_left {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.big_image_right{
+    position: absolute;
+}
+
+.small_images_left img {
+  width: 280px;
+}
+
+.big_image_right img {
+  width: 340px;
+  height: auto;
+}
