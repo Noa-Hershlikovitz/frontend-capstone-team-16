@@ -203,6 +203,21 @@
     color: #000000;
 }
 
+.success-banner {
+  display: none;              /* הבאנר מוסתר */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
