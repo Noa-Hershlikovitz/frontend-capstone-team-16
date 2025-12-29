@@ -43,6 +43,7 @@ body {
   border: 3px solid #000;
 }
 
+
 .cv-carousel-section {
   display: flex;
   flex-direction: column;
@@ -142,7 +143,7 @@ body {
   font-weight: 700;
 }
 
-.how-card .card-title {
+.how-card {
   margin: 0;
   font-weight: 600;
 }
