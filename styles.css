@@ -2,6 +2,10 @@
 :root {
   --radius: 14px;
   --shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+  /* Default CV page colors (A4) */
+  --cv-bg: #ffffff;
+  --cv-text: #111827;
 }
 
 /* Default: Dark */
@@ -73,7 +77,14 @@ body {
 }
 
 .field { margin-bottom: 12px; }
-label { display: block; font-size: 13px; color: var(--text); opacity: 0.92; margin-bottom: 6px; }
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.92;
+  margin-bottom: 6px;
+}
 
 input, textarea {
   width: 100%;
@@ -145,25 +156,34 @@ html[data-theme="light"] button.ghost:hover {
 
 .preview-title { color: var(--muted); font-size: 13px; }
 
-/* A4 Preview always white (like real paper) */
+/* ===== A4 Preview (background is dynamic!) ===== */
 .a4 {
   width: 210mm;
   min-height: 297mm;
-  background: white;
-  color: #111827;
+  background: var(--cv-bg);
+  color: var(--cv-text);
   border-radius: 8px;
   box-shadow: var(--shadow);
   padding: 18mm 16mm;
   overflow: hidden;
 }
 
+/* Make inner CV text follow the A4 text color */
+.a4 .cv-header,
+.a4 .cv-section h3,
+.a4 .cv-text,
+.a4 .cv-list,
+.a4 .cv-contact {
+  color: inherit;
+}
+
+.cv-contact .sep { margin: 0 6px; opacity: 0.65; }
+.cv-contact a { color: inherit; text-decoration: underline; }
+
 /* CV Typography */
-.cv-header { padding-bottom: 10px; border-bottom: 1px solid #e5e7eb; }
+.cv-header { padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.15); }
 .cv-name { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
-.cv-contact { margin-top: 6px; font-size: 12.5px; color: #374151; }
-.cv-contact .sep { margin: 0 6px; color: #9ca3af; }
-.cv-contact a { color: #1d4ed8; text-decoration: none; }
-.cv-contact a:hover { text-decoration: underline; }
+.cv-contact { margin-top: 6px; font-size: 12.5px; }
 
 .cv-section { margin-top: 14px; }
 .cv-section h3 {
@@ -171,11 +191,45 @@ html[data-theme="light"] button.ghost:hover {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.9px;
-  color: #111827;
 }
-.cv-text { margin: 0; font-size: 13.5px; line-height: 1.55; color: #111827; }
+
+.cv-text { margin: 0; font-size: 13.5px; line-height: 1.55; }
 .cv-list { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.55; }
-.muted { color: #6b7280; }
+
+.muted { opacity: 0.75; }
+
+/* ===== Round Color Picker ===== */
+#colorPicker {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+
+  border: 2px solid var(--border);
+  cursor: pointer;
+  background: transparent;
+}
+
+/* Chrome / Edge / Safari */
+#colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+/* Firefox */
+#colorPicker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
 
 /* Responsive */
 @media (max-width: 1100px) {
@@ -194,5 +248,7 @@ html[data-theme="light"] button.ghost:hover {
     border-radius: 0;
     box-shadow: none;
     margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

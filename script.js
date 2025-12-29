@@ -22,6 +22,47 @@ const i_skills = $("skills");
 const i_languages = $("languages");
 const i_workExperience = $("workExperience");
 
+// ===== CV Color (Accent) =====
+const COLOR_KEY = "cv_color";
+const colorPicker = $("colorPicker");
+const cvPreview = $("cvPreview");
+
+function setCvColor(hex) {
+  const v = (hex || "").trim() || "#ffffff";
+  if (cvPreview) cvPreview.style.setProperty("--cv-bg", v);
+  localStorage.setItem(COLOR_KEY, v);
+  if (colorPicker) colorPicker.value = v;
+
+  // optional: auto text color for readability
+  if (cvPreview) {
+    const t = getTextColorForBg(v);
+    cvPreview.style.setProperty("--cv-text", t);
+  }
+}
+
+function getTextColorForBg(hex) {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  // perceived brightness
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness < 140 ? "#ffffff" : "#111827";
+}
+
+
+function initCvColor() {
+  const saved = localStorage.getItem(COLOR_KEY);
+  // prefer saved, else use current picker value, else default
+  setCvColor(saved || (colorPicker ? colorPicker.value : "#2563eb"));
+}
+
+if (colorPicker) {
+  colorPicker.addEventListener("input", (e) => {
+    setCvColor(e.target.value);
+  });
+}
+
 function setText(el, value, fallback) {
   const v = (value ?? "").trim();
   el.textContent = v ? v : fallback;
@@ -97,8 +138,16 @@ function updatePreview() {
 
   setText(p_education, i_education.value, "Add your education here");
   setCommaList(p_skills, i_skills.value, "Add skills (comma separated)");
-  setCommaList(p_languages, i_languages.value, "Add languages (comma separated)");
-  setMultiline(p_workExperience, i_workExperience.value, "Add your work experience here");
+  setCommaList(
+    p_languages,
+    i_languages.value,
+    "Add languages (comma separated)"
+  );
+  setMultiline(
+    p_workExperience,
+    i_workExperience.value,
+    "Add your work experience here"
+  );
 }
 
 // Live updates
@@ -111,26 +160,25 @@ function updatePreview() {
   i_skills,
   i_languages,
   i_workExperience,
-].forEach((el) => el.addEventListener("input", updatePreview));
+].forEach((el) => el && el.addEventListener("input", updatePreview));
 
 form.addEventListener("submit", (e) => {
   e.preventDefault(); // prevent page refresh
   updatePreview();
-  // optional: show a small message or auto-print
 });
 
 $("resetBtn").addEventListener("click", () => {
   form.reset();
   updatePreview();
+
+  // reset CV color too
+  localStorage.removeItem(COLOR_KEY);
+  setCvColor("#2563eb");
 });
 
 $("printBtn").addEventListener("click", () => {
   window.print();
 });
-
-// Initial
-updatePreview();
-
 
 // ===== Theme (Dark/Light) =====
 const THEME_KEY = "cv_theme";
@@ -154,7 +202,8 @@ function initTheme() {
   }
 
   // if no saved theme, follow system preference
-  const prefersDark = window.matchMedia &&
+  const prefersDark =
+    window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   setTheme(prefersDark ? "dark" : "light");
@@ -162,9 +211,13 @@ function initTheme() {
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || "dark";
+    const current =
+      document.documentElement.getAttribute("data-theme") || "dark";
     setTheme(current === "dark" ? "light" : "dark");
   });
 }
 
+// ===== Init =====
 initTheme();
+initCvColor();
+updatePreview();
