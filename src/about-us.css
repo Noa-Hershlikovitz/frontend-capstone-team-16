@@ -203,5 +203,25 @@
     color: #000000;
 }
 
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #fdfdfd 40%,
+    #05e2ff22 100%
+  );
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 
 
