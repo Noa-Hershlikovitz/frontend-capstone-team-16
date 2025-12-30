@@ -24,6 +24,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- LEFT side nav -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">HOME</a>
@@ -31,14 +32,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">ABOUT US</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button class="btn btn-outline-dark" type="submit">Search</button>
                         </form>
                     </li>
                 </ul>
+
+                <!-- RIGHT side: Dark / Light button -->
+                <div class="ms-auto">
+                    <button type="button" id="themeToggle" class="btn btn-outline-secondary" aria-label="Toggle theme">
+                        🌙 Dark
+                    </button>
+                </div>
             </div>
+
         </div>
     </nav>
     <header class="topbar">
@@ -47,10 +56,6 @@
                 <h1>Create Your CV</h1>
                 <p class="hint">Type on the left, see the A4 preview live on the right.</p>
             </div>
-
-            <button type="button" id="themeToggle" class="ghost" aria-label="Toggle theme">
-                🌙 Dark
-            </button>
         </div>
     </header>
 
