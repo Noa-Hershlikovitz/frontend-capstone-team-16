@@ -6,12 +6,6 @@
     align-items: flex-start;
 }
 
-
-/* LEFT – text */
-.about-text {
-    flex: 1;
-}
-
 .about-text h1 {
     font-size: 56px;
     font-weight: 700;
@@ -24,42 +18,40 @@
     margin-bottom: 24px;
 }
 
-/* RIGHT – images */
+/* About us */
+.about-us {
+  font-family: 'Montserrat', sans-serif;
+}
+.about_text {
+  margin: 120px auto;
+  max-width: 1200px;
+}
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
 
 .about-images {
-    flex: 0.45;
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 30px;
 }
 
-/* two small images */
 .small_images_left {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .small_images_left img {
-    width: 40%;
-    height: 40%;
-    object-fit: cover;
-    border-radius: 6px;
+  width: 280px;
 }
 
-/* one big image */
-.small_images_left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.small_images_left img {
-    width: 40%;
-    height: 40%;
-    object-fit: cover;
-    border-radius: 6px;
+.big_image_right img {
+  width: 340px;
+  height: auto;
 }
 
 /* Mobile */
