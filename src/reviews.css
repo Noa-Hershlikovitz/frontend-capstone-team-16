@@ -6,7 +6,6 @@
     align-items: flex-start;
 }
 
-
 /* LEFT – text */
 .about-text {
     flex: 1;
@@ -22,44 +21,6 @@
     font-size: 16px;
     line-height: 1.9;
     margin-bottom: 24px;
-}
-
-/* RIGHT – images */
-
-.about-images {
-    flex: 0.45;
-    display: flex;
-    gap: 24px;
-}
-
-/* two small images */
-.small_images_left {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    flex: 0.6;
-}
-
-.small_images_left img {
-    width: 40%;
-    height: 40%;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-/* one big image */
-.small_images_left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.small_images_left img {
-    width: 40%;
-    height: 40%;
-    object-fit: cover;
-    border-radius: 6px;
 }
 
 /* Mobile */
@@ -196,6 +157,50 @@
     border: 2px solid #2e8b48;
     background: #38ae59;
     color: #000000;
+    font-weight: 600;/* ===== Add Testimonial ===== */
+.add-testimonial {
+    max-width: 500px;
+    margin: 80px auto 0;
+    text-align: center;
+}
+
+.add-testimonial h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* ===== Form ===== */
+.testimonial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.testimonial-form textarea {
+    height: 120px;
+    padding: 14px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    font-family: inherit;
+    resize: none;
+}
+
+.testimonial-form input {
+    padding: 12px 14px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    font-family: inherit;
+}
+
+.testimonial-form button {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px solid #2e8b48;
+    background: #38ae59;
+    color: #000000;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;
@@ -220,6 +225,22 @@
   z-index: 1000;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.testimonial-form button:hover {
+    background: #fff;
+    color: #000000;
+}
 
 body {
   margin: 0;
@@ -232,17 +253,6 @@ body {
     #05e2ff22 100%
   );
 }
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 80px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-cursor: pointer;
-    transition: 0.2s ease;
 
 
 
