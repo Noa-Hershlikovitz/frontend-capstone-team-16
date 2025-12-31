@@ -158,7 +158,10 @@
     border: 2px solid #2e8b48;
     background: #38ae59;
     color: #000000;
-    font-weight: 600;/* ===== Add Testimonial ===== */
+    font-weight: 600;
+}
+    
+    /* ===== Add Testimonial ===== */
 .add-testimonial {
     max-width: 500px;
     margin: 80px auto 0;
@@ -250,6 +253,3 @@ body {
     #05e2ff22 100%
   );
 }
-
-
-
