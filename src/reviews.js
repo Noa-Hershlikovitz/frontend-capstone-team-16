@@ -17,3 +17,5 @@ form.addEventListener("submit", function (e) {
   showBanner();
   form.reset(); // ✨ אופציונלי – מנקה את הטופס
 });
+
+
