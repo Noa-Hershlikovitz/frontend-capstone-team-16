@@ -234,10 +234,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
 .testimonial-form button:hover {
     background: #fff;
     color: #000000;
