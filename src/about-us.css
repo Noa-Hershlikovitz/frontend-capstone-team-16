@@ -7,13 +7,13 @@
 }
 
 .about-text h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 32px;
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 3px;
 }
 
 .about-text p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.9;
     margin-bottom: 24px;
 }
@@ -232,9 +232,5 @@ body {
   padding: 40px 80px;
   font-family: 'Montserrat', sans-serif;
 }
-
-cursor: pointer;
-    transition: 0.2s ease;
-
 
 
