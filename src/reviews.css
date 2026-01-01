@@ -165,7 +165,7 @@ body {
 
 .testimonial-form button {
     margin-top: 10px;
-    padding: 12px;
+    padding: 12px auto 0;
     border-radius: 14px;
     border: 2px solid #2e8b48;
     background: #38ae59;
