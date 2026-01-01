@@ -262,13 +262,13 @@ body {
   font-size: 26px;
   line-height: 1;
 
-  color: transparent;                 /* פנים שקוף */
-  -webkit-text-stroke: 2px #c8c8c8;   /* מסגרת אפורה */
+  color: transparent;  /*empty */         
+  -webkit-text-stroke: 2px #c8c8c8;   /* gray heart */
   transition: 0.2s ease;
 }
 
 .heart-btn:hover {
-  color: #ff2d55;                     /* פנים אדום */
-  -webkit-text-stroke: 2px #ff2d55;   /* גם המסגרת אדומה */
+  color: #ff2d55;                     /* red */
+  -webkit-text-stroke: 2px #ff2d55;   /* red heart */
   transform: scale(1.08);
 }
