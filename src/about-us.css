@@ -1,63 +1,44 @@
-.about-wrapper {
-    display: flex;
-    gap: 80px;
-    max-width: 1200px;
-    margin: 80px auto;
-    align-items: flex-start;
+
+/* About us */
+.about-us {
+  font-family: 'Montserrat', sans-serif;
+}
+.about_section {
+  margin: 120px auto;
+  max-width: 1200px;
 }
 
-
-/* LEFT – text */
-.about-text {
-    flex: 1;
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
 }
-
-.about-text h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 32px;
-}
-
-.about-text p {
-    font-size: 16px;
-    line-height: 1.9;
-    margin-bottom: 24px;
-}
-
-/* RIGHT – images */
 
 .about-images {
-    flex: 0.6;
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 30px;
 }
 
-/* two small images */
 .small_images_left {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .small_images_left img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-/* one big image */
-.big_image_right {
-    flex: 1;
+  width: 280px;
 }
 
 .big_image_right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
+  width: 340px;
+  height: auto;
 }
+
+.resume-tips summary { 
+  font-size: 90px; 
+}
+
 
 /* Mobile */
 @media (max-width: 992px) {
@@ -74,134 +55,24 @@
     }
 }
 
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 
-
-/* comm */
-
-/* ===== Section ===== */
-.testimonials-section {
-    max-width: 1200px;
-    margin: 120px auto;
-    padding: 0 20px;
-    text-align: center;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #fdfdfd 40%,
+    #05e2ff22 100%
+  );
 }
 
-.testimonials-section h2 {
-    font-size: 28px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 50px;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  font-family: 'Montserrat', sans-serif;
 }
-
-/* ===== Carousel ===== */
-.testimonials-carousel {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
-}
-
-.testimonials-carousel::-webkit-scrollbar {
-    display: none;
-}
-
-/* ===== Card ===== */
-.testimonial-card {
-    min-width: 340px;
-    max-width: 340px;
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: left;
-    scroll-snap-align: start;
-}
-
-/* ===== Card Header ===== */
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 16px;
-}
-
-.card-header h4 {
-    font-size: 16px;
-    font-weight: 700;
-    margin: 0;
-}
-
-.card-header span {
-    font-size: 14px;
-    color: #3bb4e5;
-}
-
-.menu-icon {
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* ===== Text ===== */
-.testimonial-card p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* ===== Add Testimonial ===== */
-.add-testimonial {
-    max-width: 500px;
-    margin: 80px auto 0;
-    text-align: center;
-}
-
-.add-testimonial h3 {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-/* ===== Form ===== */
-.testimonial-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.testimonial-form textarea {
-    height: 120px;
-    padding: 14px;
-    border: 2px solid #000;
-    border-radius: 12px;
-    font-family: inherit;
-    resize: none;
-}
-
-.testimonial-form input {
-    padding: 12px 14px;
-    border: 2px solid #000;
-    border-radius: 12px;
-    font-family: inherit;
-}
-
-.testimonial-form button {
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 14px;
-    border: 2px solid #2e8b48;
-    background: #38ae59;
-    color: #000000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.testimonial-form button:hover {
-    background: #fff;
-    color: #000000;
-}
-
 
 
