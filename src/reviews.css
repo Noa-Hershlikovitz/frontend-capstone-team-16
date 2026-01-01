@@ -1,3 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #fdfdfd 40%,
+    #05e2ff22 100%
+  );
+}
+
 .about-wrapper {
     display: flex;
     gap: 80px;
@@ -196,10 +208,12 @@
     border: 2px solid #000;
     border-radius: 12px;
     font-family: inherit;
+    
 }
 
 .testimonial-form button {
-    margin-top: 10px;
+    width: 150px;
+    margin-top: 10px auto 0;
     padding: 12px;
     border-radius: 14px;
     border: 2px solid #2e8b48;
@@ -208,6 +222,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;
+    display: block;
 }
 
 .testimonial-form button:hover {
@@ -237,22 +252,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.testimonial-form button:hover {
-    background: #fff;
-    color: #000000;
-}
-
-body {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #fdfdfd 40%,
-    #05e2ff22 100%
-  );
-}
 
 .heart-btn {
   background: transparent;
