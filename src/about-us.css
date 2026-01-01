@@ -35,6 +35,10 @@
   height: auto;
 }
 
+.resume-tips summary { 
+  font-size: 90px; 
+}
+
 
 /* Mobile */
 @media (max-width: 992px) {
