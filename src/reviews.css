@@ -1,3 +1,4 @@
+/* body */
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -6,64 +7,41 @@ body {
     to bottom,
     #ffffff 0%,
     #fdfdfd 40%,
-    #05e2ff22 100%
-  );
-}
+    #05e2ff22 100% ); }
 
 .about-wrapper {
     display: flex;
     gap: 80px;
     max-width: 1200px;
     margin: 80px auto;
-    align-items: flex-start;
-}
+    align-items: flex-start; }
 
 
 /* LEFT – text */
 .about-text {
-    flex: 1;
-}
+    flex: 1; }
 
 .about-text h1 {
     font-size: 56px;
     font-weight: 700;
-    margin-bottom: 32px;
-}
+    margin-bottom: 32px; }
 
 .about-text p {
     font-size: 16px;
     line-height: 1.9;
-    margin-bottom: 24px;
-}
-
-/* Mobile */
-@media (max-width: 992px) {
-    .about-wrapper {
-        flex-direction: column;
-    }
-
-    .about-images {
-        flex-direction: column;
-    }
-
-    .big_image_right img {
-        height: 320px;
-    }
-}
-
-
+    margin-bottom: 24px; }
 
 /* comm */
 
 /* ===== Section ===== */
-.testimonials-section {
+.reviews-section {
     max-width: 1200px;
     margin: 120px auto;
     padding: 0 20px;
     text-align: center;
 }
 
-.testimonials-section h2 {
+.reviews-section h2 {
     font-size: 28px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -71,7 +49,7 @@ body {
 }
 
 /* ===== Carousel ===== */
-.testimonials-carousel {
+.reviews-carousel {
     display: flex;
     gap: 30px;
     overflow-x: auto;
@@ -79,139 +57,116 @@ body {
     padding-bottom: 20px;
 }
 
-.testimonials-carousel::-webkit-scrollbar {
+.reviews-carousel::-webkit-scrollbar {
     display: none;
 }
 
-/* ===== Card ===== */
-.testimonial-card {
-    min-width: 340px;
-    max-width: 340px;
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 16px;
-    padding: 20px;
-    text-align: left;
-    scroll-snap-align: start;
-}
+/* Cards */
+.reviews-card {
+min-width: 340px;
+max-width: 340px;
+background: #fff;
+border: 3px solid #0f7c8f;
+border-radius: 16px;
+padding: 20px;
+text-align: left;
+scroll-snap-align: start; }
 
-/* ===== Card Header ===== */
+/* Hovering cards */
+.reviews-card:hover{
+  transform: translateY(-0.8px);
+  background: #ffffff;
+  border-color: #0f7c8f; }
+
+/* Card Header */
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 16px;
-}
-
-.card-header h4 {
     font-size: 16px;
-    font-weight: 700;
-    margin: 0;
-}
+    color: #071f28; }
 
-.card-header span {
-    font-size: 14px;
-    color: #3bb4e5;
-}
-
-.menu-icon {
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* ===== Text ===== */
-.testimonial-card p {
+/* Text in cards */
+.reviews-card p {
     font-size: 14px;
     line-height: 1.6;
-    margin: 0;
-}
+    margin: 0; }
 
-/* ===== Add Testimonial ===== */
-.add-testimonial {
+/* Add Testimonial */
+.add-reviews {
     max-width: 500px;
     margin: 80px auto 0;
-    text-align: center;
-}
+    text-align: center; }
 
-.add-testimonial h3 {
+.add-reviews h3 {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px; }
 
-/* ===== Form ===== */
-.testimonial-form {
+/* Form */
+.reviews-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
+    gap: 16px; }
 
-.testimonial-form textarea {
+.reviews-form textarea {
     height: 120px;
     padding: 14px;
     border: 2px solid #000;
     border-radius: 12px;
     font-family: inherit;
-    resize: none;
-}
+    resize: none; }
 
-.testimonial-form input {
+.reviews-form input {
     padding: 12px 14px;
     border: 2px solid #000;
     border-radius: 12px;
-    font-family: inherit;
-}
+    font-family: inherit; }
 
-.testimonial-form button {
+.reviews-form button {
     margin-top: 10px;
     padding: 12px auto 0;
     border-radius: 14px;
     border: 2px solid #2e8b48;
     background: #38ae59;
     color: #000000;
-    font-weight: 600;
-}
+    font-weight: 600; }
     
-    /* ===== Add Testimonial ===== */
-.add-testimonial {
+/* Add reviews */
+.add-reviews {
     max-width: 500px;
     margin: 80px auto 0;
-    text-align: center;
-}
+    text-align: center; }
 
-.add-testimonial h3 {
+.add-reviews h3 {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 20px;
-}
+    margin-bottom: 20px; }
 
 /* ===== Form ===== */
-.testimonial-form {
+.reviews-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
+    gap: 16px; }
 
-.testimonial-form textarea {
+.reviews-form textarea {
     height: 120px;
     padding: 14px;
     border: 2px solid #000;
     border-radius: 12px;
     font-family: inherit;
-    resize: none;
-}
+    resize: none; }
 
-.testimonial-form input {
+.reviews-form input {
     padding: 12px 14px;
     border: 2px solid #000;
     border-radius: 12px;
-    font-family: inherit;
-    
-}
+    font-family: inherit; }
 
-.testimonial-form button {
+.reviews-form button {
     width: 150px;
     margin-top: 10px auto 0;
     padding: 12px;
@@ -222,13 +177,11 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;
-    display: block;
-}
+    display: block; }
 
-.testimonial-form button:hover {
+.reviews-form button:hover {
     background: #fff;
-    color: #000000;
-}
+    color: #000000; }
 
 .success-banner {
   display: none;              /* הבאנר מוסתר */
@@ -241,33 +194,39 @@ body {
   padding: 15px 30px;
   border-radius: 8px;
   font-weight: 600;
-  z-index: 1000;
-}
+  z-index: 1000; }
 
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px 80px;
-  font-family: 'Montserrat', sans-serif;
-}
+  font-family: 'Montserrat', sans-serif; }
 
 
 .heart-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-
   font-size: 26px;
   line-height: 1;
-
   color: transparent;  /*empty */         
   -webkit-text-stroke: 2px #c8c8c8;   /* gray heart */
-  transition: 0.2s ease;
-}
+  transition: 0.2s ease; }
 
 .heart-btn:hover {
   color: #ff2d55;                     /* red */
   -webkit-text-stroke: 2px #ff2d55;   /* red heart */
-  transform: scale(1.08);
-}
+  transform: scale(1.08); }
+
+
+  /* Mobile */
+@media (max-width: 992px) {
+    .about-wrapper {
+    flex-direction: column;}
+
+    .about-images {
+    flex-direction: column; }
+
+    .big_image_right img {
+    height: 320px; } }
