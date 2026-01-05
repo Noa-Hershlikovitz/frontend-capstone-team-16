@@ -1,78 +1,170 @@
 
-/* About us */
-.about-us {
-  font-family: 'Montserrat', sans-serif;
-}
-.about_section {
-  margin: 120px auto;
-  max-width: 1200px;
-}
-
-.about_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px;
-}
-
-.about-images {
-  display: flex;
-  gap: 30px;
-}
-
-.small_images_left {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.small_images_left img {
-  width: 280px;
-}
-
-.big_image_right img {
-  width: 340px;
-  height: auto;
-}
-
-.resume-tips summary { 
-  font-size: 90px; 
-}
-
-
-/* Mobile */
-@media (max-width: 992px) {
-    .about-wrapper {
-        flex-direction: column;
-    }
-
-    .about-images {
-        flex-direction: column;
-    }
-
-    .big_image_right img {
-        height: 320px;
-    }
-}
-
+/* body */
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-
   background: linear-gradient(
     to bottom,
     #ffffff 0%,
     #fdfdfd 40%,
     #05e2ff22 100%
-  );
+  );}
+
+  
+/* About us */
+.about-us {
+  font-family: 'Montserrat', sans-serif;}
+
+.about_section {
+  margin: 120px auto;
+  max-width: 1200px;}
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;}
+
+
+/* images */
+.about-images {
+  display: flex;
+  gap: 30px; }
+
+.small_images_left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; }
+
+.small_images_left img {
+  width: 280px; }
+
+.big_image_right img {
+  width: 340px;
+  height: auto; }
+
+.resume-tips summary { 
+  font-size: 90px; }
+
+/* ResumeTips */
+.QuickResumeTips{
+    font-size: 20px; }
+
+  
+/* Wrapper */
+.QuickResumeTips{
+  width: min(780px, 100%);
+  margin: 40px auto; }
+
+/* Glass Card */ לעבור על זה
+.QuickResumeTips details{
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 180, 210, 0.20);
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(2, 20, 35, 0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
 }
 
+/* Summary Header */
+.QuickResumeTips summary{
+  font-family: 'Montserrat', sans-serif;
+  list-style: none;               /* hide default marker */
+  padding: 18px 18px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #0b3a4a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px; }
+
+.QuickResumeTips summary::-webkit-details-marker{
+  display: none; }
+
+
+/* Right arrow */
+.QuickResumeTips summary::after{
+  content: "▾";
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0, 180, 210, 0.18);
+  color: rgba(0, 90, 120, 0.95);
+  transition: transform 500ms ease; 
+  flex: 0 0 auto; }
+
+/* Spinning arrow */
+.QuickResumeTips details[open] summary::after{
+  transform: rotate(180deg);
+  background: rgba(5, 226, 255, 0.12); }
+
+
+/* Tips rows */
+.QuickResumeTips li{
+  list-style: none;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: rgba(30, 41, 59, 0.82);
+  line-height: 1.55;
+  position: relative;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 180ms ease; }
+
+/* Check icon */
+.QuickResumeTips li::before{
+  content: "✓";
+  font-weight: 900;
+  color: rgba(0, 140, 165, 0.95);
+  margin-right: 10px; }
+
+/* Hovering */
+.QuickResumeTips li:hover{
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(1, 31, 36, 0.16); }
+
+
+
+
+
+/* footer */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px 80px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif; }
+
+
+
+
+
+/* Mobile polish */
+@media (max-width: 520px){
+  .QuickResumeTips summary{
+    font-size: 16px;
+    padding: 16px;
+  }
+  .QuickResumeTips ul{
+    padding: 14px 16px 16px;
+  }
 }
+
+ /* Mobile */
+@media (max-width: 992px) {
+    .about-wrapper {
+        flex-direction: column;}
+
+    .about-images {
+        flex-direction: column;}
+
+    .big_image_right img {
+        height: 320px;} }
 
 
