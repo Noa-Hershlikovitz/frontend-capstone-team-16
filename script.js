@@ -22,6 +22,42 @@ const i_skills = $("skills");
 const i_languages = $("languages");
 const i_workExperience = $("workExperience");
 
+// ===== CV Color (Background) =====
+const COLOR_KEY = "cv_color";
+const colorPicker = $("colorPicker");
+const cvPreview = $("cvPreview");
+
+function getTextColorForBg(hex) {
+  const h = String(hex || "#ffffff").replace("#", "");
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+  return brightness < 140 ? "#ffffff" : "#111827";
+}
+
+function setCvColor(hex) {
+  const v = (hex || "").trim() || "#ffffff";
+  if (cvPreview) {
+    cvPreview.style.setProperty("--cv-bg", v);
+    cvPreview.style.setProperty("--cv-text", getTextColorForBg(v));
+  }
+  localStorage.setItem(COLOR_KEY, v);
+  if (colorPicker) colorPicker.value = v;
+}
+
+function initCvColor() {
+  const saved = localStorage.getItem(COLOR_KEY);
+  setCvColor(saved || (colorPicker ? colorPicker.value : "#ffffff"));
+}
+
+if (colorPicker) {
+  colorPicker.addEventListener("input", (e) => {
+    setCvColor(e.target.value);
+  });
+}
+
+// ===== Preview text helpers =====
 function setText(el, value, fallback) {
   const v = (value ?? "").trim();
   el.textContent = v ? v : fallback;
@@ -77,7 +113,6 @@ function setMultiline(el, value, fallback) {
 
   el.classList.remove("muted");
 
-  // turn each non-empty line into a bullet-like paragraph
   v.split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
@@ -111,38 +146,69 @@ function updatePreview() {
   i_skills,
   i_languages,
   i_workExperience,
-].forEach((el) => el.addEventListener("input", updatePreview));
+].forEach((el) => el && el.addEventListener("input", updatePreview));
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // prevent page refresh
+// Buttons
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    updatePreview();
+  });
+}
+
+$("resetBtn")?.addEventListener("click", () => {
+  form?.reset();
   updatePreview();
-  // optional: show a small message or auto-print
+
+  // Reset CV background color to white
+  setCvColor("#ffffff");
+  localStorage.removeItem(COLOR_KEY);
 });
 
-$("resetBtn").addEventListener("click", () => {
-  form.reset();
-  updatePreview();
-});
-
-$("printBtn").addEventListener("click", () => {
+$("printBtn")?.addEventListener("click", () => {
   window.print();
 });
 
-// Initial
-updatePreview();
-
-
-// ===== Theme (Dark/Light) =====
+// ===== Theme (Dark/Light) + Logo swap =====
 const THEME_KEY = "cv_theme";
 const themeToggle = document.getElementById("themeToggle");
 
+// ננסה קודם לפי id, ואם אין – ניקח את התמונה הראשונה בתוך ה-navbar
+const navLogo =
+  document.getElementById("navLogo") ||
+  document.querySelector(".navbar img[alt='small_Logo']") ||
+  document.querySelector(".navbar img");
+
+const footerLogo = document.getElementById("footerLogo");
+
+
+// ✅ paths (שים לב: assets ולא assest)
+const LOGO_DARK = "./src/assets/small_logo_dark_mode.png";
+const LOGO_LIGHT = "./src/assets/small_logo_light_mode.png";
+
+function applyLogo(theme) {
+  const src = theme === "dark" ? LOGO_DARK : LOGO_LIGHT;
+
+  if (navLogo) {
+    navLogo.src = src;
+  }
+
+  if (footerLogo) {
+    footerLogo.src = src;
+  }
+}
+
+
 function setTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
+  // ✅ חשוב: dataTheme (ולא dataTheme)
+  document.documentElement.setAttribute("dataTheme", theme);
   localStorage.setItem(THEME_KEY, theme);
 
   if (themeToggle) {
     themeToggle.textContent = theme === "dark" ? "🌙 Dark" : "☀️ Light";
   }
+
+  applyLogo(theme);
 }
 
 function initTheme() {
@@ -153,8 +219,8 @@ function initTheme() {
     return;
   }
 
-  // if no saved theme, follow system preference
-  const prefersDark = window.matchMedia &&
+  const prefersDark =
+    window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   setTheme(prefersDark ? "dark" : "light");
@@ -162,9 +228,17 @@ function initTheme() {
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || "dark";
+    const current =
+      document.documentElement.getAttribute("dataTheme") || "dark";
     setTheme(current === "dark" ? "light" : "dark");
   });
 }
 
-initTheme();
+// להבטיח שה-DOM נטען לפני init (במיוחד אם בעתיד תזיז את הסקריפט ל-head)
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+});
+
+// ===== Init =====
+initCvColor();
+updatePreview();

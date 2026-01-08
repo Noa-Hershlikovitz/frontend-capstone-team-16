@@ -1,0 +1,375 @@
+/* ===== Theme tokens ===== */
+:root {
+  --radius: 14px;
+  --shadow: 0 20px 60px rgba(0,0,0,0.25);
+
+  /* Default CV page colors (A4) */
+  --cv-bg: #ffffff;
+  --cv-text: #111827;
+}
+
+/* Default: Dark */
+html[dataTheme="dark"] {
+  --bg: #070b14;
+  --bg2: #0b1020;
+  --panel: rgba(17, 24, 39, 0.70);
+  --panel2: rgba(17, 24, 39, 0.55);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: rgba(255, 255, 255, 0.10);
+  --inputBg: rgba(0,0,0,0.25);
+  --focusRing: rgba(96, 165, 250, 0.18);
+  --focusBorder: rgba(96, 165, 250, 0.7);
+}
+
+/* Light */
+html[dataTheme="light"] {
+  --bg: #f3f4f6;
+  --bg2: #ffffff;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel2: rgba(255, 255, 255, 0.88);
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(17, 24, 39, 0.10);
+  --inputBg: rgba(255,255,255,0.85);
+  --focusRing: rgba(37, 99, 235, 0.12);
+  --focusBorder: rgba(37, 99, 235, 0.55);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Carlito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg2), var(--bg));
+  color: var(--text);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.topbar {
+  padding: 18px 18px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topbarRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.topbar h1 { margin: 0; font-size: 28px; }
+.hint { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  backdrop-filter: blur(6px);
+}
+
+.field { margin-bottom: 12px; }
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.92;
+  margin-bottom: 6px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--inputBg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--focusBorder);
+  box-shadow: 0 0 0 3px var(--focusRing);
+}
+
+.help { color: var(--muted); font-size: 12px; }
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  transition: transform 80ms ease, border-color 180ms ease, background 180ms ease;
+}
+button:active { transform: translateY(1px); }
+
+button.primary {
+  background: rgba(96, 165, 250, 0.18);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+html[dataTheme="light"] button.primary {
+  background: rgba(37, 99, 235, 0.10);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+button.ghost:hover {
+  background: rgba(255,255,255,0.06);
+}
+html[dataTheme="light"] button.ghost:hover {
+  background: rgba(17, 24, 39, 0.04);
+}
+
+.previewWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.previewToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  backdrop-filter: blur(6px);
+}
+
+.previewTitle { color: var(--muted); font-size: 13px; }
+
+/* ===== A4 Preview (background is dynamic!) ===== */
+.a4 {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 18mm 16mm;
+  overflow: hidden;
+}
+
+/* Make inner CV text follow the A4 text color */
+.a4 .cvHeader,
+.a4 .cvSection h3,
+.a4 .cv-text,
+.a4 .cvList,
+.a4 .cvContact {
+  color: inherit;
+}
+
+.cvContact .sep { margin: 0 6px; opacity: 0.65; }
+.cvContact a { color: inherit; text-decoration: underline; }
+
+/* CV Typography */
+.cvHeader { padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.15); }
+.cvName { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
+.cvContact { margin-top: 6px; font-size: 12.5px; }
+
+.cvSection { margin-top: 14px; }
+.cvSection h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+}
+
+.cv-text { margin: 0; font-size: 13.5px; line-height: 1.55; }
+.cvList { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.55; }
+
+.muted { opacity: 0.75; }
+
+/* ===== Round Color Picker ===== */
+#colorPicker {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+
+  border: 2px solid var(--border);
+  cursor: pointer;
+  background: transparent;
+}
+
+/* Chrome / Edge / Safari */
+#colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+/* Firefox */
+#colorPicker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    font-family: 'montserrat', sans-serif;
+}
+
+.footer ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.footer li{
+    list-style: none;
+}
+
+/* ===== Navbar Dark / Light Mode Fix ===== */
+
+/* Dark mode */
+html[dataTheme="dark"] .navbar .nav-link,
+html[dataTheme="dark"] .navbar .navbar-brand,
+html[dataTheme="dark"] .navbar .navbar-text,
+html[dataTheme="dark"] .navbar .btn {
+  color: #ffffff !important;
+}
+
+/* Search input text in dark mode */
+html[dataTheme="dark"] .navbar .form-control {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+html[dataTheme="dark"] .navbar .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Light mode */
+html[dataTheme="light"] .navbar .nav-link,
+html[dataTheme="light"] .navbar .navbar-brand,
+html[dataTheme="light"] .navbar .navbar-text,
+html[dataTheme="light"] .navbar .btn {
+  color: #111827 !important;
+}
+
+/* Search input in light mode */
+html[dataTheme="light"] .navbar .form-control {
+  color: #111827;
+  background-color: #ffffff;
+  border-color: rgba(17, 24, 39, 0.2);
+}
+
+html[dataTheme="light"] .navbar .form-control::placeholder {
+  color: rgba(17, 24, 39, 0.6);
+}
+
+/* ===== Navbar toggler (hamburger) visibility in Dark / Light ===== */
+
+/* Dark mode: make the hamburger icon white */
+html[dataTheme="dark"] .navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+html[dataTheme="dark"] .navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Light mode: keep default dark icon */
+html[dataTheme="light"] .navbar .navbar-toggler {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+html[dataTheme="light"] .navbar .navbar-toggler-icon {
+  filter: none;
+}
+
+/* ===== Footer Responsive Fix (paste at end) ===== */
+.footer {
+  gap: 32px;
+  align-items: flex-start; /* במקום center כדי שלא "ימעך" */
+}
+
+.footer_center,
+.footer_team {
+  min-width: 0;
+}
+
+/* Mobile / Tablet */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 18px;
+  }
+
+  .footer_center,
+  .footer_team {
+    width: 100%;
+  }
+
+  .footer_team ul {
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  .footer_team li,
+  .footer_center li {
+    margin-bottom: 6px;
+  }
+
+  .footer-logo img {
+    width: 110px;
+    height: auto;
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 1fr; }
+  .a4 { width: 100%; min-height: auto; }
+}
+
+/* Print only the A4 */
+@media print {
+  body { background: none; }
+  .topbar, .panel, .preview-toolbar { display: none !important; }
+  .layout { padding: 0; }
+  .a4 {
+    width: 210mm;
+    min-height: 297mm;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
