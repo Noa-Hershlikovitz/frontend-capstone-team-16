@@ -45,7 +45,6 @@ function getTextColorForBg(hex) {
   const r = parseInt(h.substring(0, 2), 16);
   const g = parseInt(h.substring(2, 4), 16);
   const b = parseInt(h.substring(4, 6), 16);
-  // perceived brightness
   const brightness = (r * 299 + g * 587 + b * 114) / 1000;
   return brightness < 140 ? "#ffffff" : "#111827";
 }
@@ -53,7 +52,6 @@ function getTextColorForBg(hex) {
 
 function initCvColor() {
   const saved = localStorage.getItem(COLOR_KEY);
-  // prefer saved, else use current picker value, else default
   setCvColor(saved || (colorPicker ? colorPicker.value : "#2563eb"));
 }
 
@@ -118,7 +116,7 @@ function setMultiline(el, value, fallback) {
 
   el.classList.remove("muted");
 
-  // turn each non-empty line into a bullet-like paragraph
+  // turn each non-empty line into a paragraph
   v.split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
@@ -173,7 +171,7 @@ $("resetBtn").addEventListener("click", () => {
 
   // reset CV color too
   localStorage.removeItem(COLOR_KEY);
-  setCvColor("#2563eb");
+  setCvColor("#ffffffff");
 });
 
 $("printBtn").addEventListener("click", () => {
