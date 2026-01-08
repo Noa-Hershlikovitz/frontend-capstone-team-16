@@ -2,13 +2,13 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-
   background: linear-gradient(
     to bottom,
-    #ffffff 0%,
-    #fdfdfd 40%,
-    #05e2ff22 100% ); }
-
+    #daf0f313 0%,
+    #05e2ff22 40%,
+    #05e2ff50 100%
+  );
+}
 .about-wrapper {
     display: flex;
     gap: 80px;
