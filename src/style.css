@@ -1,0 +1,300 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #daf0f313 0%,
+    #05e2ff22 40%,
+    #05e2ff50 100%
+  );
+}
+
+
+.big_logo {
+    margin-left: 35%;
+}
+
+/* carousel  */
+.CvCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 60px 0;
+}
+
+.CarouselWindow {
+  width: 1000px;            
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 50px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track img {
+  width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  border: 3px solid #000;
+}
+
+
+.CvCarouselCection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CarouselTitle {
+  margin-top: 20px;
+  font-size: 30;
+  letter-spacing: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+/* Arrows */
+.arrowLeft ,.arrowRight {
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.HowItWorks {
+  margin: 80px auto;
+  text-align: center;
+}
+
+.HowTitle {
+  margin-top: 20px;
+  font-size: 20;
+  letter-spacing: 4px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.how-cards {
+  margin: 0 auto;
+}
+
+.how-card {
+  width: 18rem;              
+  min-height: 200px;
+  border: 4px solid #00bcd4; 
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(80, 100, 101, 0.237);
+  background: rgba(255, 255, 255, 0.135) !important;
+}
+
+.how-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  justify-content: center; 
+  text-align: center;
+  gap: 10px;
+  padding: 24px;
+}
+
+.how-card {
+  width: 18rem;
+  min-height: 200px;
+  border: 4px solid #00bcd4;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(80, 100, 101, 0.237);
+  background: rgba(255, 255, 255, 0.45) !important;
+
+  /* חדש */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-card:hover {
+  transform: scale(1.05); /* מגדיל בעדינות */
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+.how-card svg {
+  margin-top: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.how-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+
+.how-btn {
+    width: 150px;
+    margin-top: 10px auto 0;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px solid #016f7d68;
+    background: #016f7d68;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    display: block; }
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer ul {
+  list-style: none;      
+  padding: 0;           
+  margin: 0;
+}
+
+footer li {
+  list-style: none;
+}
+
+   /* RESPONSIVE - HOME PAGE */
+
+/* ✅ Desktop */
+@media (max-width: 1024px) {
+  .CarouselWindow {
+    width: 820px;
+  }
+
+  .carousel-track {
+    gap: 30px;
+  }
+
+  .carousel-track img {
+    width: 260px;
+  }
+
+  .big_logo {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .big_logo img {
+    width: 380px;
+    height: auto;
+  }
+
+  .footer {
+    padding: 30px 40px;
+  }
+}
+
+/* ✅ Tablet  */
+@media (max-width: 768px) {
+  .CarouselWindow {
+    width: 90%;
+  }
+
+  .CvCarousel {
+    gap: 10px;
+    margin: 40px 0;
+  }
+
+  .carousel-track {
+    gap: 20px;
+  }
+
+  .carousel-track img {
+    width: 240px;
+  }
+
+  .arrowLeft, .arrowRight {
+    font-size: 32px;
+  }
+
+  .HowItWorks {
+    margin: 60px auto;
+  }
+
+  .HowTitle {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+
+  .how-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .big_logo img {
+    width: 320px;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+    padding: 30px 20px;
+  }
+}
+
+/* ✅ Mobile  */
+@media (max-width: 480px) {
+  .big_logo img {
+    width: 240px;
+  }
+
+  .CarouselTitle {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .CvCarousel {
+    margin: 30px 0;
+  }
+
+  .CarouselWindow {
+    width: 92%;
+  }
+
+  .carousel-track img {
+    width: 210px;
+  }
+
+  .arrowLeft, .arrowRight {
+    font-size: 28px;
+  }
+
+  .how-card-body {
+    padding: 18px;
+  }
+
+  .how-card svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .how-btn {
+    width: 170px;
+  }
+
+  .footer {
+    padding: 24px 16px;
+  }
+}
+
+
+
+
+
+
+
+
