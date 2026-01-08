@@ -22,26 +22,13 @@ const i_skills = $("skills");
 const i_languages = $("languages");
 const i_workExperience = $("workExperience");
 
-// ===== CV Color (Accent) =====
+// ===== CV Color (Background) =====
 const COLOR_KEY = "cv_color";
 const colorPicker = $("colorPicker");
 const cvPreview = $("cvPreview");
 
-function setCvColor(hex) {
-  const v = (hex || "").trim() || "#ffffff";
-  if (cvPreview) cvPreview.style.setProperty("--cv-bg", v);
-  localStorage.setItem(COLOR_KEY, v);
-  if (colorPicker) colorPicker.value = v;
-
-  // optional: auto text color for readability
-  if (cvPreview) {
-    const t = getTextColorForBg(v);
-    cvPreview.style.setProperty("--cv-text", t);
-  }
-}
-
 function getTextColorForBg(hex) {
-  const h = hex.replace("#", "");
+  const h = String(hex || "#ffffff").replace("#", "");
   const r = parseInt(h.substring(0, 2), 16);
   const g = parseInt(h.substring(2, 4), 16);
   const b = parseInt(h.substring(4, 6), 16);
@@ -49,6 +36,15 @@ function getTextColorForBg(hex) {
   return brightness < 140 ? "#ffffff" : "#111827";
 }
 
+function setCvColor(hex) {
+  const v = (hex || "").trim() || "#ffffff";
+  if (cvPreview) {
+    cvPreview.style.setProperty("--cv-bg", v);
+    cvPreview.style.setProperty("--cv-text", getTextColorForBg(v));
+  }
+  localStorage.setItem(COLOR_KEY, v);
+  if (colorPicker) colorPicker.value = v;
+}
 
 function initCvColor() {
   const saved = localStorage.getItem(COLOR_KEY);
@@ -61,6 +57,7 @@ if (colorPicker) {
   });
 }
 
+// ===== Preview text helpers =====
 function setText(el, value, fallback) {
   const v = (value ?? "").trim();
   el.textContent = v ? v : fallback;
@@ -116,7 +113,6 @@ function setMultiline(el, value, fallback) {
 
   el.classList.remove("muted");
 
-  // turn each non-empty line into a paragraph
   v.split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
@@ -136,16 +132,8 @@ function updatePreview() {
 
   setText(p_education, i_education.value, "Add your education here");
   setCommaList(p_skills, i_skills.value, "Add skills (comma separated)");
-  setCommaList(
-    p_languages,
-    i_languages.value,
-    "Add languages (comma separated)"
-  );
-  setMultiline(
-    p_workExperience,
-    i_workExperience.value,
-    "Add your work experience here"
-  );
+  setCommaList(p_languages, i_languages.value, "Add languages (comma separated)");
+  setMultiline(p_workExperience, i_workExperience.value, "Add your work experience here");
 }
 
 // Live updates
@@ -160,43 +148,67 @@ function updatePreview() {
   i_workExperience,
 ].forEach((el) => el && el.addEventListener("input", updatePreview));
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // prevent page refresh
-  updatePreview();
-});
+// Buttons
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    updatePreview();
+  });
+}
 
-$("resetBtn").addEventListener("click", () => {
-  form.reset();
+$("resetBtn")?.addEventListener("click", () => {
+  form?.reset();
   updatePreview();
 
   // Reset CV background color to white
-  if (colorPicker) {
-    colorPicker.value = "#ffffff";
-  }
-  if (cvPreview) {
-    cvPreview.style.setProperty("--cv-bg", "#ffffff");
-    cvPreview.style.setProperty("--cv-text", "#111827"); // text back to dark
-  }
-
-  localStorage.removeItem("cv_color");
+  setCvColor("#ffffff");
+  localStorage.removeItem(COLOR_KEY);
 });
 
-
-$("printBtn").addEventListener("click", () => {
+$("printBtn")?.addEventListener("click", () => {
   window.print();
 });
 
-// ===== Theme (Dark/Light) =====
+// ===== Theme (Dark/Light) + Logo swap =====
 const THEME_KEY = "cv_theme";
 const themeToggle = document.getElementById("themeToggle");
 
+// ננסה קודם לפי id, ואם אין – ניקח את התמונה הראשונה בתוך ה-navbar
+const navLogo =
+  document.getElementById("navLogo") ||
+  document.querySelector(".navbar img[alt='small_Logo']") ||
+  document.querySelector(".navbar img");
+
+const footerLogo = document.getElementById("footerLogo");
+
+
+// ✅ paths (שים לב: assets ולא assest)
+const LOGO_DARK = "./src/assets/small_logo_dark_mode.png";
+const LOGO_LIGHT = "./src/assets/small_logo_light_mode.png";
+
+function applyLogo(theme) {
+  const src = theme === "dark" ? LOGO_DARK : LOGO_LIGHT;
+
+  if (navLogo) {
+    navLogo.src = src;
+  }
+
+  if (footerLogo) {
+    footerLogo.src = src;
+  }
+}
+
+
 function setTheme(theme) {
+  // ✅ חשוב: dataTheme (ולא dataTheme)
   document.documentElement.setAttribute("dataTheme", theme);
   localStorage.setItem(THEME_KEY, theme);
 
   if (themeToggle) {
     themeToggle.textContent = theme === "dark" ? "🌙 Dark" : "☀️ Light";
   }
+
+  applyLogo(theme);
 }
 
 function initTheme() {
@@ -207,7 +219,6 @@ function initTheme() {
     return;
   }
 
-  // if no saved theme, follow system preference
   const prefersDark =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -223,7 +234,11 @@ if (themeToggle) {
   });
 }
 
+// להבטיח שה-DOM נטען לפני init (במיוחד אם בעתיד תזיז את הסקריפט ל-head)
+document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
+});
+
 // ===== Init =====
-initTheme();
 initCvColor();
 updatePreview();
