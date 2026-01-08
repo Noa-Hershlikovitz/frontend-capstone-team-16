@@ -219,6 +219,24 @@ scroll-snap-align: start; }
   -webkit-text-stroke: 2px #ff2d55;   /* red heart */
   transform: scale(1.08); }
 
+  .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer ul {
+  list-style: none;      
+  padding: 0;           
+  margin: 0;
+}
+
+footer li {
+  list-style: none;
+}
+
 
   /* Mobile */
 @media (max-width: 992px) {
