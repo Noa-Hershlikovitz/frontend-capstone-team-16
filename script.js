@@ -191,7 +191,7 @@ const THEME_KEY = "cv_theme";
 const themeToggle = document.getElementById("themeToggle");
 
 function setTheme(theme) {
-  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.setAttribute("dataTheme", theme);
   localStorage.setItem(THEME_KEY, theme);
 
   if (themeToggle) {
@@ -218,7 +218,7 @@ function initTheme() {
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     const current =
-      document.documentElement.getAttribute("data-theme") || "dark";
+      document.documentElement.getAttribute("dataTheme") || "dark";
     setTheme(current === "dark" ? "light" : "dark");
   });
 }

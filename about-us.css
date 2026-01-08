@@ -9,7 +9,7 @@
 }
 
 /* Default: Dark */
-html[data-theme="dark"] {
+html[dataTheme="dark"] {
   --bg: #070b14;
   --bg2: #0b1020;
   --panel: rgba(17, 24, 39, 0.70);
@@ -23,7 +23,7 @@ html[data-theme="dark"] {
 }
 
 /* Light */
-html[data-theme="light"] {
+html[dataTheme="light"] {
   --bg: #f3f4f6;
   --bg2: #ffffff;
   --panel: rgba(255, 255, 255, 0.88);
@@ -125,7 +125,7 @@ button.primary {
   background: rgba(96, 165, 250, 0.18);
   border-color: rgba(96, 165, 250, 0.35);
 }
-html[data-theme="light"] button.primary {
+html[dataTheme="light"] button.primary {
   background: rgba(37, 99, 235, 0.10);
   border-color: rgba(37, 99, 235, 0.22);
 }
@@ -133,7 +133,7 @@ html[data-theme="light"] button.primary {
 button.ghost:hover {
   background: rgba(255,255,255,0.06);
 }
-html[data-theme="light"] button.ghost:hover {
+html[dataTheme="light"] button.ghost:hover {
   background: rgba(17, 24, 39, 0.04);
 }
 
@@ -249,6 +249,47 @@ html[data-theme="light"] button.ghost:hover {
 .footer li{
     list-style: none;
 }
+
+/* ===== Navbar Dark / Light Mode Fix ===== */
+
+/* Dark mode */
+html[dataTheme="dark"] .navbar .nav-link,
+html[dataTheme="dark"] .navbar .navbar-brand,
+html[dataTheme="dark"] .navbar .navbar-text,
+html[dataTheme="dark"] .navbar .btn {
+  color: #ffffff !important;
+}
+
+/* Search input text in dark mode */
+html[dataTheme="dark"] .navbar .form-control {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+html[dataTheme="dark"] .navbar .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Light mode */
+html[dataTheme="light"] .navbar .nav-link,
+html[dataTheme="light"] .navbar .navbar-brand,
+html[dataTheme="light"] .navbar .navbar-text,
+html[dataTheme="light"] .navbar .btn {
+  color: #111827 !important;
+}
+
+/* Search input in light mode */
+html[dataTheme="light"] .navbar .form-control {
+  color: #111827;
+  background-color: #ffffff;
+  border-color: rgba(17, 24, 39, 0.2);
+}
+
+html[dataTheme="light"] .navbar .form-control::placeholder {
+  color: rgba(17, 24, 39, 0.6);
+}
+
 
 /* Responsive */
 @media (max-width: 1100px) {
