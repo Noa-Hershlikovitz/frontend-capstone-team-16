@@ -131,8 +131,6 @@ body {
 
 
 
-
-
 /* footer */
 .footer {
   display: flex;
@@ -140,6 +138,13 @@ body {
   align-items: center;
   padding: 40px 80px;
   font-family: 'Montserrat', sans-serif; }
+
+footer ul {
+  list-style: none;
+  padding: 0; }
+
+footer li {
+  list-style: none; }
 
 
 
