@@ -1,7 +1,14 @@
 
-// ✨ עובד עכשיו כי form מוגדר
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  showBanner();
-  form.reset(); // ✨ אופציונלי – מנקה את הטופס
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("reviewsForm");
+
+  console.log("JS loaded, form:", form); // בדיקה
+
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Your review was submitted successfully! ✅");
+    form.reset();
+  });
 });
