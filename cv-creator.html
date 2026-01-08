@@ -9,14 +9,13 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <link rel="stylesheet" href="about-us.css" />
-    <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/css2?family=Carlito&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-transparent">
         <div class="container-fluid">
-            <a class="Build_Me" href="#">
+            <a class="Build_Me" href="/src/index.html">
                 <img id="navLogo" src="/src/assets/small_logo_light_mode.png" alt="small_Logo" width="90" height="30"
                     class="d-inline-block align-text-top">
             </a>
@@ -27,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
-                    <li><a class="nav-link" href="#">CV-CREATOR</a></li>
+                    <li><a class="nav-link" href="/cv-creator.html">CV-CREATOR</a></li>
                     <li><a class="nav-link" href="#">REVIEWS</a></li>
 
                 </ul>
@@ -44,15 +43,10 @@
     </nav>
     <header class="topbar">
         <div class="topbarRow">
-    <header class="topbar">
-        <div class="topbar-row">
             <div>
                 <h1>Create Your CV</h1>
                 <p class="hint">Type on the left, see the A4 preview live on the right.</p>
             </div>
-            <button type="button" id="themeToggle" class="ghost" aria-label="Toggle theme">
-                🌙 Dark
-            </button>
         </div>
     </header>
 
@@ -107,7 +101,6 @@
 
                 <div class="actions">
                     <button type="button" id="printBtn" class="ghost">Print / Save PDF</button>
-                    <button type="submit" class="primary">Create CV</button>
                     <button type="button" id="resetBtn" class="ghost">Reset</button>
                 </div>
             </form>
@@ -123,21 +116,11 @@
                 <header class="cvHeader">
                     <h2 id="p_fullName" class="cvName">Your Name</h2>
                     <div class="cvContact">
-        <section class="preview-wrap">
-            <div class="preview-toolbar">
-                <div class="preview-title">Live Preview (A4)</div>
-                <button type="button" id="printBtn" class="ghost">Print / Save PDF</button>
-            </div>
-
-            <article class="a4" id="cvPreview" aria-label="CV Preview">
-                <header class="cv-header">
-                    <h2 id="p_fullName" class="cv-name">Your Name</h2>
-                    <div class="cv-contact">
                         <span id="p_email">email@example.com</span>
                         <span class="sep">•</span>
                         <span id="p_phone"></span>
                         <span class="sep">•</span>
-                        <a id="p_linkedin" href="#" target="_blank" rel="noopener">linkedin.com</a>
+                        <span id="p_linkedin" target="_blank">linkedin.com</span>
                     </div>
                 </header>
 
@@ -149,18 +132,6 @@
                 <section class="cvSection">
                     <h3>Skills</h3>
                     <ul id="p_skills" class="cvList muted">
-                        <a id="p_linkedin" href="#" target="_blank" rel="noopener">linkedin.com</a>
-                    </div>
-                </header>
-
-                <section class="cv-section">
-                    <h3>Education</h3>
-                    <p id="p_education" class="cv-text muted">Add your education here</p>
-                </section>
-
-                <section class="cv-section">
-                    <h3>Skills</h3>
-                    <ul id="p_skills" class="cv-list muted">
                         <li>Add skills (comma separated)</li>
                     </ul>
                 </section>
@@ -168,9 +139,6 @@
                 <section class="cvSection">
                     <h3>Languages</h3>
                     <ul id="p_languages" class="cvList muted">
-                <section class="cv-section">
-                    <h3>Languages</h3>
-                    <ul id="p_languages" class="cv-list muted">
                         <li>Add languages (comma separated)</li>
                     </ul>
                 </section>
@@ -178,9 +146,6 @@
                 <section class="cvSection">
                     <h3>Work Experience</h3>
                     <div id="p_workExperience" class="cvText muted">
-                <section class="cv-section">
-                    <h3>Work Experience</h3>
-                    <div id="p_workExperience" class="cv-text muted">
                         Add your work experience here
                     </div>
                 </section>
@@ -215,7 +180,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
-    <script src="script.js"></script>
+    <script src="cv-creator.js"></script>
 </body>
 
 </html>
