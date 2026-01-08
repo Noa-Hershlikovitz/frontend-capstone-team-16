@@ -5,11 +5,11 @@ body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(
     to bottom,
-    #ffffff 0%,
-    #fdfdfd 40%,
-    #05e2ff22 100%
-  );}
-
+    #daf0f313 0%,
+    #05e2ff22 40%,
+    #05e2ff50 100%
+  );
+}
   
 /* About us */
 .about-us {
@@ -56,7 +56,7 @@ body {
   width: min(780px, 100%);
   margin: 40px auto; }
 
-/* Glass Card */ לעבור על זה
+/* Glass Card --  לעבור על זה */
 .QuickResumeTips details{
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(0, 180, 210, 0.20);
@@ -145,6 +145,8 @@ footer ul {
 
 footer li {
   list-style: none; }
+
+  
 
 
 
