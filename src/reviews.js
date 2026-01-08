@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("reviewsForm");
 
@@ -12,3 +11,4 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
   });
 });
+
