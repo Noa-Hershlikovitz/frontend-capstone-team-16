@@ -1,5 +1,5 @@
 let currentIndex = 0;
-const imagesPerSlide = 3;
+const imagesPerSlide = 1;
 
 function getStep() {
   const track = document.getElementById("carouselTrack");

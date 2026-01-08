@@ -10,8 +10,6 @@ body {
   );
 }
 
-
-
 .big_logo {
     margin-left: 30%;
 }
@@ -65,43 +63,6 @@ body {
   border: none;
   font-size: 40px;
   cursor: pointer;
-}
-
-
-/* About us */
-.about-us {
-  font-family: 'Montserrat', sans-serif;
-}
-.about_section {
-  margin: 120px auto;
-  max-width: 1200px;
-}
-
-.about_content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px;
-}
-
-.about-images {
-  display: flex;
-  gap: 30px;
-}
-
-.small_images_left {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.small_images_left img {
-  width: 280px;
-}
-
-.big_image_right img {
-  width: 340px;
-  height: auto;
 }
 
 .how_it_works {
