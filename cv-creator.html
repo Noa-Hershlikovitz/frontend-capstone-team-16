@@ -51,7 +51,7 @@
         </div>
     </nav>
     <header class="topbar">
-        <div class="topbar-row">
+        <div class="topbarRow">
             <div>
                 <h1>Create Your CV</h1>
                 <p class="hint">Type on the left, see the A4 preview live on the right.</p>
@@ -64,7 +64,7 @@
             <form id="cvForm" novalidate>
                 <div>
                     <label for="colorPicker">Pick CV Color</label>
-                    <input type="color" id="colorPicker" name="colorPicker" value="#2563eb" />
+                    <input type="color" id="colorPicker" name="colorPicker" value="#ffffff" />
                 </div>
                 <br />
                 <div class="field">
@@ -116,15 +116,15 @@
         </section>
 
         <!-- RIGHT: A4 Preview -->
-        <section class="preview-wrap">
-            <div class="preview-toolbar">
-                <div class="preview-title">Live Preview (A4)</div>
+        <section class="previewWrap">
+            <div class="previewToolbar">
+                <div class="previewTitle">Live Preview of your CV:</div>
             </div>
 
             <article class="a4" id="cvPreview" aria-label="CV Preview">
-                <header class="cv-header">
-                    <h2 id="p_fullName" class="cv-name">Your Name</h2>
-                    <div class="cv-contact">
+                <header class="cvHeader">
+                    <h2 id="p_fullName" class="cvName">Your Name</h2>
+                    <div class="cvContact">
                         <span id="p_email">email@example.com</span>
                         <span class="sep">•</span>
                         <span id="p_phone"></span>
@@ -133,28 +133,28 @@
                     </div>
                 </header>
 
-                <section class="cv-section">
+                <section class="cvSection">
                     <h3>Education</h3>
-                    <p id="p_education" class="cv-text muted">Add your education here</p>
+                    <p id="p_education" class="cvText muted">Add your education here</p>
                 </section>
 
-                <section class="cv-section">
+                <section class="cvSection">
                     <h3>Skills</h3>
-                    <ul id="p_skills" class="cv-list muted">
+                    <ul id="p_skills" class="cvList muted">
                         <li>Add skills (comma separated)</li>
                     </ul>
                 </section>
 
-                <section class="cv-section">
+                <section class="cvSection">
                     <h3>Languages</h3>
-                    <ul id="p_languages" class="cv-list muted">
+                    <ul id="p_languages" class="cvList muted">
                         <li>Add languages (comma separated)</li>
                     </ul>
                 </section>
 
-                <section class="cv-section">
+                <section class="cvSection">
                     <h3>Work Experience</h3>
-                    <div id="p_workExperience" class="cv-text muted">
+                    <div id="p_workExperience" class="cvText muted">
                         Add your work experience here
                     </div>
                 </section>

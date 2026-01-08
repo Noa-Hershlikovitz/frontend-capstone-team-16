@@ -52,7 +52,7 @@ function getTextColorForBg(hex) {
 
 function initCvColor() {
   const saved = localStorage.getItem(COLOR_KEY);
-  setCvColor(saved || (colorPicker ? colorPicker.value : "#2563eb"));
+  setCvColor(saved || (colorPicker ? colorPicker.value : "#ffffff"));
 }
 
 if (colorPicker) {
@@ -169,10 +169,18 @@ $("resetBtn").addEventListener("click", () => {
   form.reset();
   updatePreview();
 
-  // reset CV color too
-  localStorage.removeItem(COLOR_KEY);
-  setCvColor("#ffffffff");
+  // Reset CV background color to white
+  if (colorPicker) {
+    colorPicker.value = "#ffffff";
+  }
+  if (cvPreview) {
+    cvPreview.style.setProperty("--cv-bg", "#ffffff");
+    cvPreview.style.setProperty("--cv-text", "#111827"); // text back to dark
+  }
+
+  localStorage.removeItem("cv_color");
 });
+
 
 $("printBtn").addEventListener("click", () => {
   window.print();

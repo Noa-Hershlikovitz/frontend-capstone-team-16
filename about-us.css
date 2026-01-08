@@ -51,7 +51,7 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.topbar-row {
+.topbarRow {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -137,13 +137,13 @@ html[data-theme="light"] button.ghost:hover {
   background: rgba(17, 24, 39, 0.04);
 }
 
-.preview-wrap {
+.previewWrap {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.preview-toolbar {
+.previewToolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,7 +154,7 @@ html[data-theme="light"] button.ghost:hover {
   backdrop-filter: blur(6px);
 }
 
-.preview-title { color: var(--muted); font-size: 13px; }
+.previewTitle { color: var(--muted); font-size: 13px; }
 
 /* ===== A4 Preview (background is dynamic!) ===== */
 .a4 {
@@ -169,24 +169,24 @@ html[data-theme="light"] button.ghost:hover {
 }
 
 /* Make inner CV text follow the A4 text color */
-.a4 .cv-header,
-.a4 .cv-section h3,
+.a4 .cvHeader,
+.a4 .cvSection h3,
 .a4 .cv-text,
-.a4 .cv-list,
-.a4 .cv-contact {
+.a4 .cvList,
+.a4 .cvContact {
   color: inherit;
 }
 
-.cv-contact .sep { margin: 0 6px; opacity: 0.65; }
-.cv-contact a { color: inherit; text-decoration: underline; }
+.cvContact .sep { margin: 0 6px; opacity: 0.65; }
+.cvContact a { color: inherit; text-decoration: underline; }
 
 /* CV Typography */
-.cv-header { padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.15); }
-.cv-name { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
-.cv-contact { margin-top: 6px; font-size: 12.5px; }
+.cvHeader { padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.15); }
+.cvName { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
+.cvContact { margin-top: 6px; font-size: 12.5px; }
 
-.cv-section { margin-top: 14px; }
-.cv-section h3 {
+.cvSection { margin-top: 14px; }
+.cvSection h3 {
   margin: 0 0 6px;
   font-size: 13px;
   text-transform: uppercase;
@@ -194,7 +194,7 @@ html[data-theme="light"] button.ghost:hover {
 }
 
 .cv-text { margin: 0; font-size: 13.5px; line-height: 1.55; }
-.cv-list { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.55; }
+.cvList { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.55; }
 
 .muted { opacity: 0.75; }
 
