@@ -257,12 +257,7 @@ html[dataTheme="dark"] .navbar .form-control::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-html[dataTheme="light"] .navbar .nav-link,
-html[dataTheme="light"] .navbar .navbar-brand,
-html[dataTheme="light"] .navbar .navbar-text,
-html[dataTheme="light"] .navbar .btn {
-  color: #111827 !important;
-}
+
 
 html[dataTheme="light"] .navbar .form-control {
   color: #111827;
