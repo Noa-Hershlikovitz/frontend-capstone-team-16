@@ -57,7 +57,7 @@ if (colorPicker) {
   });
 }
 
-// ===== Preview text helpers =====
+//  Preview text helpers 
 function setText(el, value, fallback) {
   const v = (value ?? "").trim();
   el.textContent = v ? v : fallback;
@@ -169,11 +169,10 @@ $("printBtn")?.addEventListener("click", () => {
   window.print();
 });
 
-// ===== Theme (Dark/Light) + Logo swap =====
+//  Theme  + Logo swap 
 const THEME_KEY = "cv_theme";
 const themeToggle = document.getElementById("themeToggle");
 
-// ננסה קודם לפי id, ואם אין – ניקח את התמונה הראשונה בתוך ה-navbar
 const navLogo =
   document.getElementById("navLogo") ||
   document.querySelector(".navbar img[alt='small_Logo']") ||
@@ -182,7 +181,6 @@ const navLogo =
 const footerLogo = document.getElementById("footerLogo");
 
 
-// ✅ paths (שים לב: assets ולא assest)
 const LOGO_DARK = "./src/assets/small_logo_dark_mode.png";
 const LOGO_LIGHT = "./src/assets/small_logo_light_mode.png";
 
@@ -200,7 +198,6 @@ function applyLogo(theme) {
 
 
 function setTheme(theme) {
-  // ✅ חשוב: dataTheme (ולא dataTheme)
   document.documentElement.setAttribute("dataTheme", theme);
   localStorage.setItem(THEME_KEY, theme);
 
@@ -234,11 +231,9 @@ if (themeToggle) {
   });
 }
 
-// להבטיח שה-DOM נטען לפני init (במיוחד אם בעתיד תזיז את הסקריפט ל-head)
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
 });
 
-// ===== Init =====
 initCvColor();
 updatePreview();

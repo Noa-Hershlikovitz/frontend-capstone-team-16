@@ -5,7 +5,6 @@ function getCarouselEls() {
   const track = document.getElementById("carouselTrack");
   if (!track) return { track: null, win: null, imgs: [] };
 
-  // ייקח את האלמנט של החלון (אפשר לפי class)
   const win = track.closest(".CvCarousel")?.querySelector(".CarouselWindow") || null;
   const imgs = Array.from(track.querySelectorAll("img"));
   return { track, win, imgs };
@@ -22,7 +21,6 @@ function getStep(track, firstImg) {
 function getVisibleCount(win, step, gap) {
   if (!win || !step) return 1;
 
-  // כמה "צעדים" נכנסים בחלון (כולל gap קטן לחישוב נכון)
   const w = win.getBoundingClientRect().width;
   const visible = Math.floor((w + gap) / step);
   return Math.max(1, visible);

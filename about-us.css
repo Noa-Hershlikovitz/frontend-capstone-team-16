@@ -1,14 +1,11 @@
-/* ===== Theme tokens ===== */
 :root {
   --radius: 14px;
   --shadow: 0 20px 60px rgba(0,0,0,0.25);
 
-  /* Default CV page colors (A4) */
   --cv-bg: #ffffff;
   --cv-text: #111827;
 }
 
-/* Default: Dark */
 html[dataTheme="dark"] {
   --bg: #070b14;
   --bg2: #0b1020;
@@ -22,7 +19,6 @@ html[dataTheme="dark"] {
   --focusBorder: rgba(96, 165, 250, 0.7);
 }
 
-/* Light */
 html[dataTheme="light"] {
   --bg: #f3f4f6;
   --bg2: #ffffff;
@@ -156,7 +152,6 @@ html[dataTheme="light"] button.ghost:hover {
 
 .previewTitle { color: var(--muted); font-size: 13px; }
 
-/* ===== A4 Preview (background is dynamic!) ===== */
 .a4 {
   width: 210mm;
   min-height: 297mm;
@@ -168,7 +163,6 @@ html[dataTheme="light"] button.ghost:hover {
   overflow: hidden;
 }
 
-/* Make inner CV text follow the A4 text color */
 .a4 .cvHeader,
 .a4 .cvSection h3,
 .a4 .cv-text,
@@ -180,7 +174,6 @@ html[dataTheme="light"] button.ghost:hover {
 .cvContact .sep { margin: 0 6px; opacity: 0.65; }
 .cvContact a { color: inherit; text-decoration: underline; }
 
-/* CV Typography */
 .cvHeader { padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.15); }
 .cvName { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
 .cvContact { margin-top: 6px; font-size: 12.5px; }
@@ -198,7 +191,6 @@ html[dataTheme="light"] button.ghost:hover {
 
 .muted { opacity: 0.75; }
 
-/* ===== Round Color Picker ===== */
 #colorPicker {
   -webkit-appearance: none;
   appearance: none;
@@ -213,7 +205,6 @@ html[dataTheme="light"] button.ghost:hover {
   background: transparent;
 }
 
-/* Chrome / Edge / Safari */
 #colorPicker::-webkit-color-swatch-wrapper {
   padding: 0;
   border-radius: 50%;
@@ -224,7 +215,6 @@ html[dataTheme="light"] button.ghost:hover {
   border-radius: 50%;
 }
 
-/* Firefox */
 #colorPicker::-moz-color-swatch {
   border: none;
   border-radius: 50%;
@@ -250,9 +240,6 @@ html[dataTheme="light"] button.ghost:hover {
     list-style: none;
 }
 
-/* ===== Navbar Dark / Light Mode Fix ===== */
-
-/* Dark mode */
 html[dataTheme="dark"] .navbar .nav-link,
 html[dataTheme="dark"] .navbar .navbar-brand,
 html[dataTheme="dark"] .navbar .navbar-text,
@@ -260,7 +247,6 @@ html[dataTheme="dark"] .navbar .btn {
   color: #ffffff !important;
 }
 
-/* Search input text in dark mode */
 html[dataTheme="dark"] .navbar .form-control {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
@@ -271,7 +257,6 @@ html[dataTheme="dark"] .navbar .form-control::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Light mode */
 html[dataTheme="light"] .navbar .nav-link,
 html[dataTheme="light"] .navbar .navbar-brand,
 html[dataTheme="light"] .navbar .navbar-text,
@@ -279,7 +264,6 @@ html[dataTheme="light"] .navbar .btn {
   color: #111827 !important;
 }
 
-/* Search input in light mode */
 html[dataTheme="light"] .navbar .form-control {
   color: #111827;
   background-color: #ffffff;
@@ -290,9 +274,6 @@ html[dataTheme="light"] .navbar .form-control::placeholder {
   color: rgba(17, 24, 39, 0.6);
 }
 
-/* ===== Navbar toggler (hamburger) visibility in Dark / Light ===== */
-
-/* Dark mode: make the hamburger icon white */
 html[dataTheme="dark"] .navbar .navbar-toggler {
   border-color: rgba(255, 255, 255, 0.4);
 }
@@ -301,7 +282,6 @@ html[dataTheme="dark"] .navbar .navbar-toggler-icon {
   filter: invert(1);
 }
 
-/* Light mode: keep default dark icon */
 html[dataTheme="light"] .navbar .navbar-toggler {
   border-color: rgba(0, 0, 0, 0.2);
 }
@@ -310,10 +290,9 @@ html[dataTheme="light"] .navbar .navbar-toggler-icon {
   filter: none;
 }
 
-/* ===== Footer Responsive Fix (paste at end) ===== */
 .footer {
   gap: 32px;
-  align-items: flex-start; /* במקום center כדי שלא "ימעך" */
+  align-items: flex-start; 
 }
 
 .footer_center,
@@ -321,12 +300,12 @@ html[dataTheme="light"] .navbar .navbar-toggler-icon {
   min-width: 0;
 }
 
-/* Mobile / Tablet */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
-    padding: 24px 16px;
-    gap: 18px;
+    gap: 25px;
+    text-align: center;
+    padding: 30px 20px;
   }
 
   .footer_center,
@@ -352,13 +331,12 @@ html[dataTheme="light"] .navbar .navbar-toggler-icon {
 
 
 
-/* Responsive */
 @media (max-width: 1100px) {
   .layout { grid-template-columns: 1fr; }
   .a4 { width: 100%; min-height: auto; }
 }
 
-/* Print only the A4 */
+/* A4 Print */
 @media print {
   body { background: none; }
   .topbar, .panel, .preview-toolbar { display: none !important; }
