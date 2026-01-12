@@ -1,39 +1,72 @@
 let currentIndex = 0;
-const imagesPerSlide = 1;
+const MOVE_BY = 1;
 
-function getStep() {
+function getCarouselEls() {
   const track = document.getElementById("carouselTrack");
-  const firstImg = track.querySelector("img");
-  if (!firstImg) return 0;
+  if (!track) return { track: null, win: null, imgs: [] };
+
+  // ייקח את האלמנט של החלון (אפשר לפי class)
+  const win = track.closest(".CvCarousel")?.querySelector(".CarouselWindow") || null;
+  const imgs = Array.from(track.querySelectorAll("img"));
+  return { track, win, imgs };
+}
+
+function getStep(track, firstImg) {
+  if (!track || !firstImg) return 0;
 
   const imgWidth = firstImg.getBoundingClientRect().width; // כולל border
   const gap = parseFloat(getComputedStyle(track).gap) || 0;
-
   return imgWidth + gap;
 }
 
-function updateCarousel() {
-  const track = document.getElementById("carouselTrack");
-  const step = getStep();
+function getVisibleCount(win, step, gap) {
+  if (!win || !step) return 1;
+
+  // כמה "צעדים" נכנסים בחלון (כולל gap קטן לחישוב נכון)
+  const w = win.getBoundingClientRect().width;
+  const visible = Math.floor((w + gap) / step);
+  return Math.max(1, visible);
+}
+
+function clampIndex(index, maxIndex) {
+  return Math.max(0, Math.min(index, maxIndex));
+}
+
+function updateCarousel({ clamp = true } = {}) {
+  const { track, win, imgs } = getCarouselEls();
+  if (!track || imgs.length === 0) return;
+
+  const firstImg = imgs[0];
+  const gap = parseFloat(getComputedStyle(track).gap) || 0;
+  const step = getStep(track, firstImg);
+  if (!step) return;
+
+  const visibleCount = getVisibleCount(win, step, gap);
+  const maxIndex = Math.max(0, imgs.length - visibleCount);
+
+  if (clamp) currentIndex = clampIndex(currentIndex, maxIndex);
+
   track.style.transform = `translateX(${-currentIndex * step}px)`;
 }
 
 function nextSlide() {
-  const track = document.getElementById("carouselTrack");
-  const totalImages = track.querySelectorAll("img").length;
+  const { track, win, imgs } = getCarouselEls();
+  if (!track || imgs.length === 0) return;
 
-  if (currentIndex <= totalImages - imagesPerSlide - imagesPerSlide) {
-    currentIndex += imagesPerSlide;
-    updateCarousel();
-  }
+  const gap = parseFloat(getComputedStyle(track).gap) || 0;
+  const step = getStep(track, imgs[0]);
+  const visibleCount = getVisibleCount(win, step, gap);
+  const maxIndex = Math.max(0, imgs.length - visibleCount);
+
+  currentIndex = clampIndex(currentIndex + MOVE_BY, maxIndex);
+  updateCarousel({ clamp: false });
 }
 
 function prevSlide() {
-  if (currentIndex >= imagesPerSlide) {
-    currentIndex -= imagesPerSlide;
-    updateCarousel();
-  }
+  currentIndex = Math.max(0, currentIndex - MOVE_BY);
+  updateCarousel({ clamp: false });
 }
 
-// אופציונלי: כדי שיעדכן אם משנים גודל חלון
-window.addEventListener("resize", updateCarousel);
+window.addEventListener("resize", () => updateCarousel({ clamp: true }));
+window.addEventListener("load", () => updateCarousel({ clamp: true }));
+document.addEventListener("DOMContentLoaded", () => updateCarousel({ clamp: true }));
