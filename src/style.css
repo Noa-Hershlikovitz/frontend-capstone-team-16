@@ -10,57 +10,71 @@ body {
 }
 
 .big_logo {
-  margin-left: 35%;
-}
-
-/* ===== Carousel (Responsive) ===== */
-.CvCarousel {
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin: 60px 0;
-  padding: 0 12px;
+  margin: 30px 0 10px;
 }
-
-.CarouselWindow {
-  width: min(1000px, calc(100% - 120px)); /* משאיר מקום לחץ ימין/שמאל */
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 3vw, 50px);
-  transition: transform 0.5s ease-in-out;
-  will-change: transform;
-}
-
-.carousel-track img {
-  width: clamp(210px, 28vw, 300px);
+.big_logo img {
+  max-width: 100%;
   height: auto;
-  flex: 0 0 auto;
-  border: 3px solid #000;
-  display: block;
 }
 
-.CvCarouselCection {
+
+
+:root {
+  --cv-gap: 50px;
+  --cv-card-w: 300px;
+  --cv-cards: 3; 
+}
+
+.CvCarouselSection {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.CvCarousel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 60px 0 18px;
+  padding: 0 14px; 
+}
+
+.CarouselWindow {
+  overflow: hidden;
+  width: calc(
+    (var(--cv-cards) * var(--cv-card-w)) + ((var(--cv-cards) - 1) * var(--cv-gap))
+  );
+  max-width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--cv-gap);
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-track img {
+  width: var(--cv-card-w);
+  height: auto;
+  flex-shrink: 0;
+  border: 3px solid #000;
+  display: block; 
+}
+
 .CarouselTitle {
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 16px;
+  font-size: 30px;      
   letter-spacing: 5px;
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
 }
 
-/* Arrows */
 .arrowLeft,
 .arrowRight {
   background: none;
@@ -68,10 +82,11 @@ body {
   font-size: 40px;
   cursor: pointer;
   line-height: 1;
-  padding: 8px 10px;
+  padding: 6px 10px;
+  user-select: none;
 }
 
-/* ===== HOW IT WORKS ===== */
+
 .HowItWorks {
   margin: 80px auto;
   text-align: center;
@@ -79,7 +94,7 @@ body {
 
 .HowTitle {
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 20px;      
   letter-spacing: 4px;
   font-weight: 500;
   text-transform: uppercase;
@@ -140,13 +155,12 @@ body {
   display: block;
 }
 
-/* ===== Footer ===== */
 .footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px 80px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 footer ul {
@@ -159,23 +173,12 @@ footer li {
   list-style: none;
 }
 
-/* ===== Responsive ===== */
 
-/* Desktop */
 @media (max-width: 1024px) {
-  .CarouselWindow {
-    width: min(820px, calc(100% - 120px));
-  }
-
-  .big_logo {
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .big_logo img {
-    width: 380px;
-    height: auto;
+  :root {
+    --cv-gap: 30px;
+    --cv-card-w: 260px;
+    --cv-cards: 3; /* still 3 */
   }
 
   .footer {
@@ -183,19 +186,16 @@ footer li {
   }
 }
 
-/* Tablet */
 @media (max-width: 768px) {
+  :root {
+    --cv-gap: 20px;
+    --cv-card-w: 240px;
+    --cv-cards: 2;
+  }
+
   .CvCarousel {
     gap: 10px;
-    margin: 40px 0;
-  }
-
-  .CarouselWindow {
-    width: min(92vw, calc(100% - 100px));
-  }
-
-  .carousel-track img {
-    width: clamp(220px, 50vw, 260px);
+    margin: 40px 0 16px;
   }
 
   .arrowLeft,
@@ -217,10 +217,6 @@ footer li {
     max-width: 360px;
   }
 
-  .big_logo img {
-    width: 320px;
-  }
-
   .footer {
     flex-direction: column;
     gap: 25px;
@@ -229,27 +225,21 @@ footer li {
   }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
-  .big_logo img {
-    width: 240px;
+  :root {
+    --cv-gap: 16px;
+    --cv-cards: 1;
+    /* Card is responsive but window will match it בדיוק */
+    --cv-card-w: min(82vw, 310px);
+  }
+
+  .CvCarousel {
+    margin: 30px 0 12px;
   }
 
   .CarouselTitle {
     font-size: 18px;
     letter-spacing: 2px;
-  }
-
-  .CvCarousel {
-    margin: 30px 0;
-  }
-
-  .CarouselWindow {
-    width: min(92vw, calc(100% - 86px));
-  }
-
-  .carousel-track img {
-    width: clamp(200px, 80vw, 240px);
   }
 
   .arrowLeft,
@@ -272,5 +262,17 @@ footer li {
 
   .footer {
     padding: 24px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  :root {
+    --cv-card-w: min(88vw, 250px);
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --cv-card-w: min(88vw, 200px);
   }
 }
