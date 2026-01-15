@@ -1,0 +1,320 @@
+/* =========================
+   GLOBAL
+========================= */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #daf0f313 0%,
+    #05e2ff22 40%,
+    #05e2ff50 100%
+  );
+}
+
+/* =========================
+   ABOUT SECTION LAYOUT
+========================= */
+
+/* (הייתה לך מחלקה about-us אבל ב-HTML אין אותה, אז לא נשען עליה) */
+.about_section {
+  margin: 120px auto;
+  max-width: 1200px;
+  padding: 0 20px; /* חשוב: שלא יידבק לקצוות במובייל */
+}
+
+.about_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* Text block */
+.aboutText {
+  flex: 1 1 520px;
+  min-width: 0;
+}
+
+.aboutText h2 {
+  margin: 0 0 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.05;
+}
+
+.aboutText p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+  color: rgba(17, 24, 39, 0.9);
+}
+
+.aboutText a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(1, 111, 125, 0.35);
+  background: rgba(1, 111, 125, 0.12);
+  color: rgba(11, 58, 74, 0.95);
+  font-weight: 700;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.aboutText a:hover {
+  transform: translateY(-1px);
+  background: rgba(1, 111, 125, 0.18);
+}
+
+/* =========================
+   IMAGES
+========================= */
+.about-images {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Left column (2 small images) */
+.small_images_left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.small_images_left img,
+.big_image_right img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+/* desktop sizes (stay close to your original but safer) */
+.small_images_left {
+  width: 280px;
+}
+.big_image_right {
+  width: 340px;
+}
+
+/* =========================
+   QUICK RESUME TIPS (DETAILS)
+========================= */
+
+/* Wrapper */
+.QuickResumeTips {
+  font-size: 20px;
+  width: min(780px, 100%);
+  margin: 40px auto;
+}
+
+/* Glass Card */
+.QuickResumeTips details {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 180, 210, 0.20);
+  border-radius: 18px;
+  box-shadow: 0 18px 50px rgba(2, 20, 35, 0.10);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+/* Summary Header */
+.QuickResumeTips summary {
+  font-family: "Montserrat", sans-serif;
+  list-style: none;
+  padding: 18px 18px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #0b3a4a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.QuickResumeTips summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Arrow */
+.QuickResumeTips summary::after {
+  content: "▾";
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 180, 210, 0.18);
+  color: rgba(0, 90, 120, 0.95);
+  transition: transform 500ms ease, background 200ms ease;
+  flex: 0 0 auto;
+}
+
+.QuickResumeTips details[open] summary::after {
+  transform: rotate(180deg);
+  background: rgba(5, 226, 255, 0.12);
+}
+
+/* List spacing inside details */
+.QuickResumeTips ul {
+  margin: 0;
+  padding: 14px 18px 18px;
+}
+
+/* Tips rows */
+.QuickResumeTips li {
+  list-style: none;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: rgba(30, 41, 59, 0.82);
+  line-height: 1.55;
+  position: relative;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: transform 180ms ease, background 180ms ease, border 180ms ease;
+}
+.QuickResumeTips li + li {
+  margin-top: 10px;
+}
+
+.QuickResumeTips li::before {
+  content: "✓";
+  font-weight: 900;
+  color: rgba(0, 140, 165, 0.95);
+  margin-right: 10px;
+}
+
+.QuickResumeTips li:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(1, 31, 36, 0.16);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px 80px;
+  font-family: "Montserrat", sans-serif;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  list-style: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Large tablets / small laptops */
+@media (max-width: 992px) {
+  .about_section {
+    margin: 80px auto;
+  }
+
+  .about_content {
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  /* Images become a row that wraps nicely */
+  .about-images {
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  /* Left small images become a row on tablet (nicer usage of width) */
+  .small_images_left {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  /* Make images responsive (no fixed px widths here) */
+  .small_images_left img {
+    width: min(46%, 320px);
+  }
+
+  .big_image_right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .big_image_right img {
+    width: min(92%, 520px);
+  }
+
+  .footer {
+    padding: 30px 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .about_section {
+    margin: 64px auto;
+    padding: 0 16px;
+  }
+
+  .aboutText h2 {
+    font-size: 26px;
+  }
+
+  .aboutText p {
+    font-size: 15px;
+  }
+
+  /* Images stack vertically in small screens */
+  .about-images {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .small_images_left {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .small_images_left img,
+  .big_image_right img {
+    width: min(92%, 360px);
+  }
+
+  .QuickResumeTips {
+    font-size: 18px;
+  }
+
+  .QuickResumeTips summary {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .QuickResumeTips ul {
+    padding: 14px 16px 16px;
+  }
+}
