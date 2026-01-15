@@ -150,7 +150,7 @@ html[dataTheme="light"] button.ghost:hover {
   backdrop-filter: blur(6px);
 }
 
-.previewTitle { color: var(--muted); font-size: 13px; }
+.previewTitle { color: var(--muted); font-size: 20px; }
 
 .a4 {
   width: 210mm;
