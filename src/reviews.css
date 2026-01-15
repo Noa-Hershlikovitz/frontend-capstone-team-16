@@ -220,15 +220,19 @@ footer li {
   }
 
   .footer {
+    padding: 30px 20px;
     flex-direction: column;
-    padding: 28px 18px;
-    gap: 18px;
+    text-align: center;
+    align-items: center;
   }
 }
 
 
 @media (max-width: 768px) {
   .footer {
-    padding: 32px 24px;
+    padding: 30px 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
 }
