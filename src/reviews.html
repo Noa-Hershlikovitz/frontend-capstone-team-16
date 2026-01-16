@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./reviews.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container-fluid">
+            <a class="Build_Me" href="#">
+                <img src="./assets/TRSMALLLOGO.png" alt="small_Logo" width="90" height="30"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">ABOUT US</a></li>
+                    <li><a class="nav-link" href="#">CV-CREATOR</a></li>
+                    <li><a class="nav-link" href="#">REVIEWS</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Recommendations -->
+ <section class="reviewsSection">
+  <h1></h1>
+  <h2>BUILT ON REAL EXPERIENCE</h2>
+
+  <div class="reviewsCarousel">
+
+    <div class="reviewsCard">
+      <div class="cardHeader">
+        <div>
+          <h4>Liron Ben-David</h4>
+          <p>Computer Science Student</p>
+        </div>
+          <button class="heartBtn" aria-label="Like review">♥</button>
+      </div>
+      <p>
+        “No prior experience needed, everything is clear from the very first step.”
+      </p>
+    </div>
+
+
+    <div class="reviewsCard">
+      <div class="cardHeader">
+
+        <div>
+          <h4>Shani Rosen</h4>
+          <p>Junior Marketing Specialist</p>
+        </div>
+          <button class="heartBtn" aria-label="Like review">♥</button>
+      </div>
+      <p>
+        “Clean interface, great templates, and a result that feels professional and precise.”
+      </p>
+    </div>
+
+    <div class="reviewsCard">
+      <div class="cardHeader">
+        <div>
+          <h4>Yoav Levi</h4>
+          <p>Industrial Engineering Graduate</p>
+        </div>
+          <button class="heartBtn" aria-label="Like review">♥</button>
+        </div>
+      <p>
+        “I didn’t expect to create such a well-structured resume in under 10 minutes.
+        Everything was clear and easy to use.”
+      </p>
+    </div>
+
+
+</section>
+  <div class="addReviews">
+      <h3>SHARE YOUR EXPERIENCE WITH EVERYONE</h3>
+
+  <form class="reviewsForm" id="reviewsForm">
+  <input type="text" placeholder="Full name" required />
+  <input type="text" placeholder="Current position" required />
+  <textarea placeholder="Write your experience here.." required></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+  </div>  
+
+<hr>
+<footer class="footer">
+  <div class="footer_center">
+    <div class="footer-logo">
+      <a class="Build_Me" href="#">
+        <img src="./assets/TRSMALLLOGO.png" alt="small_Logo" width="90" height="30" class="d-inline-block align-text-top">
+      </a>
+    </div>
+    <p>This project was created as part of an academic course in Web Development</p>
+    <p>&copy;BUILD ME 2026. All rights reserved </p>
+    <li><a href="https://github.com/Noa-Hershlikovitz/frontend-capstone-team-16">GitHub Repository</a></li>
+  </div>
+
+  <div class="Footerteam">
+    <h4>Created By</h4>
+    <ul>
+      <li> <a href="https://www.linkedin.com/in/inbareliya/">Inbar Eliya</a></li>
+      <li> <a href="https://www.linkedin.com/in/meytar-kompel/">Meytar Kompel</a></li>
+      <li><a href="https://www.linkedin.com/in/noa-hershlikovitz/">Noa Hershlikovitz</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- script to navber -->
+    <script src="./reviews.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+</body>
+</html>

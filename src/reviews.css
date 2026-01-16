@@ -1,0 +1,238 @@
+/* =========================
+   Base
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #daf0f313 0%,
+    #05e2ff22 40%,
+    #05e2ff50 100%
+  );
+}
+
+/* =========================
+   Reviews Section
+========================= */
+.reviewsSection {
+  max-width: 1200px;
+  margin: 120px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.reviewsSection h2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0 0 50px;
+}
+
+/* =========================
+   Carousel
+========================= */
+.reviewsCarousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* חשוב: נותן "שוליים" כדי שלא ייחתך בצדדים */
+  padding: 0 20px 20px;
+  scroll-padding-left: 20px;
+  scroll-padding-right: 20px;
+}
+
+.reviewsCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.reviewsCard {
+  flex: 0 0 auto;
+  width: 340px;
+  max-width: 340px;
+
+  background: #fff;
+  border: 3px solid #0f7c8f;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+
+  scroll-snap-align: start;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.reviewsCard:hover {
+  transform: translateY(-0.8px);
+  background: #ffffff;
+  border-color: #0f7c8f;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #071f28;
+}
+
+.reviewsCard p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Heart */
+.heartBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px #c8c8c8;
+  transition: 0.2s ease;
+}
+
+.heartBtn:hover {
+  color: #ff2d55;
+  -webkit-text-stroke: 2px #ff2d55;
+  transform: scale(1.08);
+}
+
+/* =========================
+   Add Review Form
+========================= */
+.addReviews {
+  max-width: 520px;
+  margin: 80px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.addReviews h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 20px;
+}
+
+.reviewsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewsForm input,
+.reviewsForm textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #000;
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.reviewsForm textarea {
+  height: 120px;
+  resize: none;
+}
+
+.reviewsForm button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: 2px solid #0f536e;
+  background: #0f536e;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.reviewsForm button:hover {
+  background: #fff;
+  color: #000000;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px 80px;
+  font-family: "Montserrat", sans-serif;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer li {
+  list-style: none;
+}
+
+/* =========================
+   Responsive Fixes
+========================= */
+
+/* ✅ 425/375/320: כרטיס 1 בלבד, בלי "טעימה" מהבא */
+@media (max-width: 480px) {
+  .reviewsSection {
+    margin: 90px auto;
+    padding: 0 16px; /* padding מגיע מהסקשן, לא מהקרוסלה */
+  }
+
+  .reviewsSection h2 {
+    font-size: 22px;
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .reviewsCarousel {
+    gap: 0;               
+    padding: 0 0 18px;      
+    scroll-padding-left: 0;
+    scroll-padding-right: 0;
+  }
+
+  .reviewsCard {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: start; /* חשוב: לא center */
+  }
+
+  .footer {
+    padding: 30px 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}
