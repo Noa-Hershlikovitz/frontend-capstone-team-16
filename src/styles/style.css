@@ -68,7 +68,7 @@ body {
 
 .CarouselTitle {
   margin-top: 16px;
-  font-size: 30px;      
+  font-size: 20px;      
   letter-spacing: 5px;
   font-weight: 500;
   text-transform: uppercase;
@@ -86,6 +86,48 @@ body {
   user-select: none;
 }
 
+/* Trust Bar */
+.trustbar{
+  margin: 40px auto 0;
+}
+
+.trustbar .container-fluid{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 36px 48px;
+
+  background: rgba(255, 255, 255, 0.221);
+  border-radius: 18px;
+
+  border-top: 1px solid rgba(0,0,0,0.08);
+  
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.trust-icon{
+  font-size: 3rem;     /* גודל ברור */
+  opacity: 0.8;         /* שקיפות חוקית */
+  color: #1111119b;           /* צבע בסיס */
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.trust-icon:hover{
+  opacity: 1;
+  transform: translateY(-3px);
+  color: #00bcd4;       
+}
+
+.trust-inner{
+  max-width: 1400px;   /* שולט כמה רחב זה באמת */
+  margin: 0 auto;      /* מרכז */
+  padding: 36px 48px;  /* מרווח פנימי גדול יותר */
+  background: rgba(255, 255, 255, 0.388);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+  
+}
 
 .HowItWorks {
   margin: 80px auto;
@@ -94,7 +136,7 @@ body {
 
 .HowTitle {
   margin-top: 20px;
-  font-size: 20px;      
+  font-size: 30px;      
   letter-spacing: 4px;
   font-weight: 500;
   text-transform: uppercase;
