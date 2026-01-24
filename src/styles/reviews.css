@@ -78,6 +78,10 @@ body {
   color: #071f28;
 }
 
+p {
+  text-align: justify;
+}
+
 .reviewsCard p {
   font-size: 14px;
   line-height: 1.6;
