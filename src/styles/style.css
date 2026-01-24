@@ -320,3 +320,9 @@ footer li {
     --cv-card-w: min(88vw, 200px);
   }
 }
+@media (max-width: 768px) {
+  .trustbar .container-fluid {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

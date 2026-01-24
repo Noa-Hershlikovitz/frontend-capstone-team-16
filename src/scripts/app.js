@@ -1,70 +1,100 @@
 let currentIndex = 0;
 const MOVE_BY = 1;
 
+let cached = {
+  track: null,
+  win: null,
+  imgs: [],
+};
+
+let metrics = {
+  step: 0,
+  gap: 0,
+  visibleCount: 1,
+  maxIndex: 0,
+};
+
 function getCarouselEls() {
+  if (cached.track) return cached;
+
   const track = document.getElementById("carouselTrack");
   if (!track) return { track: null, win: null, imgs: [] };
 
-  const win = track.closest(".CvCarousel")?.querySelector(".CarouselWindow") || null;
+  const win =
+    track.closest(".CvCarousel")?.querySelector(".CarouselWindow") || null;
   const imgs = Array.from(track.querySelectorAll("img"));
-  return { track, win, imgs };
+
+  cached = { track, win, imgs };
+  return cached;
 }
 
-function getStep(track, firstImg) {
-  if (!track || !firstImg) return 0;
+function computeMetrics() {
+  const { track, win, imgs } = getCarouselEls();
+  if (!track || !win || imgs.length === 0) return false;
 
-  const imgWidth = firstImg.getBoundingClientRect().width; // כולל border
   const gap = parseFloat(getComputedStyle(track).gap) || 0;
-  return imgWidth + gap;
+
+  const firstImg = imgs[0];
+  const imgRect = firstImg.getBoundingClientRect();
+  const winRect = win.getBoundingClientRect();
+
+  const step = imgRect.width + gap;
+  if (!step) return false;
+
+  const visible = Math.max(1, Math.floor((winRect.width + gap) / step));
+  const maxIndex = Math.max(0, imgs.length - visible);
+
+  metrics = { step, gap, visibleCount: visible, maxIndex };
+  return true;
 }
 
-function getVisibleCount(win, step, gap) {
-  if (!win || !step) return 1;
-
-  const w = win.getBoundingClientRect().width;
-  const visible = Math.floor((w + gap) / step);
-  return Math.max(1, visible);
+function clampIndex(index) {
+  return Math.max(0, Math.min(index, metrics.maxIndex));
 }
 
-function clampIndex(index, maxIndex) {
-  return Math.max(0, Math.min(index, maxIndex));
+function applyTransform() {
+  const { track } = getCarouselEls();
+  if (!track) return;
+
+  track.style.willChange = "transform";
+  track.style.transform = `translateX(${-currentIndex * metrics.step}px)`;
+
+  window.clearTimeout(applyTransform._t);
+  applyTransform._t = window.setTimeout(() => {
+    track.style.willChange = "auto";
+  }, 600);
 }
 
 function updateCarousel({ clamp = true } = {}) {
-  const { track, win, imgs } = getCarouselEls();
-  if (!track || imgs.length === 0) return;
+  const ok = computeMetrics();
+  if (!ok) return;
 
-  const firstImg = imgs[0];
-  const gap = parseFloat(getComputedStyle(track).gap) || 0;
-  const step = getStep(track, firstImg);
-  if (!step) return;
-
-  const visibleCount = getVisibleCount(win, step, gap);
-  const maxIndex = Math.max(0, imgs.length - visibleCount);
-
-  if (clamp) currentIndex = clampIndex(currentIndex, maxIndex);
-
-  track.style.transform = `translateX(${-currentIndex * step}px)`;
+  if (clamp) currentIndex = clampIndex(currentIndex);
+  applyTransform();
 }
 
 function nextSlide() {
-  const { track, win, imgs } = getCarouselEls();
-  if (!track || imgs.length === 0) return;
+  const ok = computeMetrics();
+  if (!ok) return;
 
-  const gap = parseFloat(getComputedStyle(track).gap) || 0;
-  const step = getStep(track, imgs[0]);
-  const visibleCount = getVisibleCount(win, step, gap);
-  const maxIndex = Math.max(0, imgs.length - visibleCount);
-
-  currentIndex = clampIndex(currentIndex + MOVE_BY, maxIndex);
-  updateCarousel({ clamp: false });
+  currentIndex = clampIndex(currentIndex + MOVE_BY);
+  applyTransform();
 }
 
 function prevSlide() {
-  currentIndex = Math.max(0, currentIndex - MOVE_BY);
-  updateCarousel({ clamp: false });
+  const ok = computeMetrics();
+  if (!ok) return;
+
+  currentIndex = clampIndex(currentIndex - MOVE_BY);
+  applyTransform();
 }
 
-window.addEventListener("resize", () => updateCarousel({ clamp: true }));
-window.addEventListener("load", () => updateCarousel({ clamp: true }));
-document.addEventListener("DOMContentLoaded", () => updateCarousel({ clamp: true }));
+let resizeTimer = null;
+window.addEventListener("resize", () => {
+  window.clearTimeout(resizeTimer);
+  resizeTimer = window.setTimeout(() => updateCarousel({ clamp: true }), 120);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => updateCarousel({ clamp: true }));
+});
