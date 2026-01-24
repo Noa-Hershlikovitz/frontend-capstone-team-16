@@ -14,7 +14,9 @@ body {
     #05e2ff50 100%
   );
 }
-
+.align-text-top{
+    margin-bottom: 5px;
+}
 
 .reviewsSection {
   max-width: 1200px;

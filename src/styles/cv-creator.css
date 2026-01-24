@@ -42,6 +42,10 @@ body {
   transition: background 180ms ease, color 180ms ease;
 }
 
+.align-text-top{
+    margin-bottom: 5px;
+}
+
 .topbar {
   padding: 18px 18px 10px;
   border-bottom: 1px solid var(--border);

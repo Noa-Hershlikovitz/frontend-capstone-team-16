@@ -12,6 +12,10 @@ body {
   );
 }
 
+.align-text-top{
+    margin-bottom: 5px;
+}
+
 .about_section {
   margin: 120px auto;
   max-width: 1200px;

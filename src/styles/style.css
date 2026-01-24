@@ -9,6 +9,10 @@ body {
   );
 }
 
+.align-text-top{
+    margin-bottom: 5px;
+}
+
 .big_logo {
   display: flex;
   justify-content: center;
