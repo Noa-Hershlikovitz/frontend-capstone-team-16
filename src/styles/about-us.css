@@ -1,6 +1,4 @@
-/* =========================
-   GLOBAL
-========================= */
+
 * { box-sizing: border-box; }
 
 body {
@@ -14,15 +12,10 @@ body {
   );
 }
 
-/* =========================
-   ABOUT SECTION LAYOUT
-========================= */
-
-/* (הייתה לך מחלקה about-us אבל ב-HTML אין אותה, אז לא נשען עליה) */
 .about_section {
   margin: 120px auto;
   max-width: 1200px;
-  padding: 0 20px; /* חשוב: שלא יידבק לקצוות במובייל */
+  padding: 0 20px; 
 }
 
 .about_content {
@@ -32,7 +25,6 @@ body {
   gap: 60px;
 }
 
-/* Text block */
 .aboutText {
   flex: 1 1 520px;
   min-width: 0;
@@ -67,9 +59,7 @@ body {
   background: rgba(1, 111, 125, 0.18);
 }
 
-/* =========================
-   IMAGES
-========================= */
+
 .about-images {
   flex: 0 0 auto;
   display: flex;
@@ -77,7 +67,6 @@ body {
   align-items: flex-start;
 }
 
-/* Left column (2 small images) */
 .small_images_left {
   display: flex;
   flex-direction: column;
@@ -93,7 +82,6 @@ body {
   box-shadow: 0 10px 26px rgba(0,0,0,0.12);
 }
 
-/* desktop sizes (stay close to your original but safer) */
 .small_images_left {
   width: 280px;
 }
@@ -101,18 +89,12 @@ body {
   width: 340px;
 }
 
-/* =========================
-   QUICK RESUME TIPS (DETAILS)
-========================= */
-
-/* Wrapper */
 .QuickResumeTips {
   font-size: 20px;
   width: min(780px, 100%);
   margin: 40px auto;
 }
 
-/* Glass Card */
 .QuickResumeTips details {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(0, 180, 210, 0.20);
@@ -123,7 +105,6 @@ body {
   overflow: hidden;
 }
 
-/* Summary Header */
 .QuickResumeTips summary {
   font-family: "Montserrat", sans-serif;
   list-style: none;
@@ -142,7 +123,6 @@ body {
   display: none;
 }
 
-/* Arrow */
 .QuickResumeTips summary::after {
   content: "▾";
   width: 34px;
@@ -162,13 +142,11 @@ body {
   background: rgba(5, 226, 255, 0.12);
 }
 
-/* List spacing inside details */
 .QuickResumeTips ul {
   margin: 0;
   padding: 14px 18px 18px;
 }
 
-/* Tips rows */
 .QuickResumeTips li {
   list-style: none;
   padding: 10px 12px;
@@ -197,9 +175,6 @@ body {
   border: 1px solid rgba(1, 31, 36, 0.16);
 }
 
-/* =========================
-   FOOTER
-========================= */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -219,11 +194,8 @@ footer li {
   list-style: none;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-/* Large tablets / small laptops */
+
 @media (max-width: 992px) {
   .about_section {
     margin: 80px auto;
@@ -234,7 +206,6 @@ footer li {
     gap: 34px;
   }
 
-  /* Images become a row that wraps nicely */
   .about-images {
     width: 100%;
     justify-content: center;
@@ -242,7 +213,6 @@ footer li {
     flex-wrap: wrap;
   }
 
-  /* Left small images become a row on tablet (nicer usage of width) */
   .small_images_left {
     width: 100%;
     flex-direction: row;
@@ -250,7 +220,6 @@ footer li {
     gap: 18px;
   }
 
-  /* Make images responsive (no fixed px widths here) */
   .small_images_left img {
     width: min(46%, 320px);
   }
@@ -273,7 +242,6 @@ footer li {
   }
 }
 
-/* Mobile */
 @media (max-width: 520px) {
   .about_section {
     margin: 64px auto;
@@ -288,7 +256,6 @@ footer li {
     font-size: 15px;
   }
 
-  /* Images stack vertically in small screens */
   .about-images {
     flex-direction: column;
     align-items: center;

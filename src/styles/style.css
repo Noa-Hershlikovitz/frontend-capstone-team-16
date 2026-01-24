@@ -86,7 +86,6 @@ body {
   user-select: none;
 }
 
-/* Trust Bar */
 .trustbar{
   margin: 40px auto 0;
 }
@@ -108,9 +107,9 @@ body {
 }
 
 .trust-icon{
-  font-size: 3rem;     /* גודל ברור */
-  opacity: 0.8;         /* שקיפות חוקית */
-  color: #1111119b;           /* צבע בסיס */
+  font-size: 3rem;     
+  opacity: 0.8;         
+  color: #1111119b;           
   transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
 
@@ -121,9 +120,9 @@ body {
 }
 
 .trust-inner{
-  max-width: 1400px;   /* שולט כמה רחב זה באמת */
-  margin: 0 auto;      /* מרכז */
-  padding: 36px 48px;  /* מרווח פנימי גדול יותר */
+  max-width: 1400px;   
+  margin: 0 auto;      
+  padding: 36px 48px;  
   background: rgba(255, 255, 255, 0.388);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
   
@@ -220,7 +219,7 @@ footer li {
   :root {
     --cv-gap: 30px;
     --cv-card-w: 260px;
-    --cv-cards: 3; /* still 3 */
+    --cv-cards: 3; 
   }
 
   .footer {
@@ -271,7 +270,6 @@ footer li {
   :root {
     --cv-gap: 16px;
     --cv-cards: 1;
-    /* Card is responsive but window will match it בדיוק */
     --cv-card-w: min(82vw, 310px);
   }
 
