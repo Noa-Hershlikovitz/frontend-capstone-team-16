@@ -2,7 +2,6 @@ const $ = (id) => document.getElementById(id);
 
 const form = $("cvForm");
 
-// Preview elements
 const p_fullName = $("p_fullName");
 const p_email = $("p_email");
 const p_phone = $("p_phone");
@@ -12,7 +11,6 @@ const p_skills = $("p_skills");
 const p_languages = $("p_languages");
 const p_workExperience = $("p_workExperience");
 
-// Inputs
 const i_fullName = $("fullName");
 const i_email = $("email");
 const i_phone = $("phone");
@@ -22,7 +20,6 @@ const i_skills = $("skills");
 const i_languages = $("languages");
 const i_workExperience = $("workExperience");
 
-// ===== CV Color (Background) =====
 const COLOR_KEY = "cv_color";
 const colorPicker = $("colorPicker");
 const cvPreview = $("cvPreview");
@@ -57,7 +54,6 @@ if (colorPicker) {
   });
 }
 
-//  Preview text helpers 
 function setText(el, value, fallback) {
   const v = (value ?? "").trim();
   el.textContent = v ? v : fallback;
@@ -136,7 +132,6 @@ function updatePreview() {
   setMultiline(p_workExperience, i_workExperience.value, "Add your work experience here");
 }
 
-// Live updates
 [
   i_fullName,
   i_email,
@@ -148,7 +143,6 @@ function updatePreview() {
   i_workExperience,
 ].forEach((el) => el && el.addEventListener("input", updatePreview));
 
-// Buttons
 if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -160,7 +154,6 @@ $("resetBtn")?.addEventListener("click", () => {
   form?.reset();
   updatePreview();
 
-  // Reset CV background color to white
   setCvColor("#ffffff");
   localStorage.removeItem(COLOR_KEY);
 });
@@ -169,7 +162,6 @@ $("printBtn")?.addEventListener("click", () => {
   window.print();
 });
 
-//  Theme  + Logo swap 
 const THEME_KEY = "cv_theme";
 const themeToggle = document.getElementById("themeToggle");
 
