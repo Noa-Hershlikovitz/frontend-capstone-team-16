@@ -21,6 +21,6 @@ The main attraction is "CV-Creator" page when you can really create your own CV 
 
 ## Features
 * CV Creator that update in real-time
-* Dark/Light mode
+* Dark/Light mode ![Theme Toggle](https://img.shields.io/badge/Theme%20Toggle-🌙%20☀️-informational)
 * Leave you own Review after CV creation
 * Free tips for CV creation
