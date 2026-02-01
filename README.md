@@ -10,6 +10,12 @@ You can see Reviews from our customers and leave your review after using our web
 The main attraction is "CV-Creator" page when you can really create your own CV and see in real-time how your CV will look and in the end you can print/save the CV you created for future use.
 
 
+## Technologies
+* HTML
+* CSS
+* JavaScript
+* LocalStorage
+
 ## Features
 * CV Creator that update in real-time
 * Dark/Light mode
