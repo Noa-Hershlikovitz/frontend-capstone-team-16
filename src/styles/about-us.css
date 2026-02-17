@@ -52,21 +52,6 @@ p {
   color: rgba(17, 24, 39, 0.9);
 }
 
-.aboutText a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 2px solid rgba(1, 111, 125, 0.35);
-  background: rgba(1, 111, 125, 0.12);
-  color: rgba(11, 58, 74, 0.95);
-  font-weight: 700;
-  transition: transform 0.15s ease, background 0.2s ease;
-}
-.aboutText a:hover {
-  transform: translateY(-1px);
-  background: rgba(1, 111, 125, 0.18);
-}
 
 .about-images {
   flex: 0 0 auto;
