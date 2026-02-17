@@ -173,8 +173,8 @@ const navLogo =
 const footerLogo = document.getElementById("footerLogo");
 
 
-const LOGO_DARK = "./src/assets/small_logo_dark_mode.png";
-const LOGO_LIGHT = "./src/assets/small_logo_light_mode.png";
+const LOGO_DARK = "src/assets/small_logo_dark_mode.png";
+const LOGO_LIGHT = "src/assets/small_logo_light_mode.png";
 
 function applyLogo(theme) {
   const src = theme === "dark" ? LOGO_DARK : LOGO_LIGHT;
